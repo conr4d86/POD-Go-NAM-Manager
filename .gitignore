@@ -1,0 +1,16 @@
+/build/
+/dist/
+__pycache__/
+*.pyc
+*.hxf
+*.dfu
+*.dll
+*.exe
+*.pgb
+*.pgp
+*.log
+.env
+.env.*
+.vs/
+.vscode/
+

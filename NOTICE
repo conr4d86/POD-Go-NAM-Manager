@@ -1,0 +1,22 @@
+POD Go NAM Manager
+Copyright (C) 2026 Conr4d / conr4daudio
+
+Project code is provided under GPL-3.0-or-later. See LICENSE.
+
+The NAM kernel, carrier format, SHARC assembler/simulator and associated
+firmware tools derive from nocaseguy/hx-stomp-nam-lite, GPL-3.0-or-later.
+Pinned source revision: 2e801641df4a083c29ee13c5718c047d336ef692
+Upstream: https://github.com/nocaseguy/hx-stomp-nam-lite
+Its source and original notices are in third_party/hx-stomp-nam-lite.
+POD Go placement, model integration, bounded Model-value name display,
+Windows USB manager, firmware preparation and bilingual interface are
+maintained in this repository. The upstream source is kept separate.
+
+The included capture is Developed by Conr4d, by conr4daudio.
+See models/NOTICE.txt for the capture. The software GPL does not assign
+ownership of user-supplied NAM files, presets, IRs or firmware originals.
+
+Line 6 and Yamaha product names identify compatible hardware. This is an
+independent project. No Line 6 runtime DLLs or complete firmware image are
+included. The user supplies their installed tools and original firmware.
+

@@ -1,0 +1,31 @@
+name: Bug report / Informar de un fallo
+description: Report an issue with Manager or NAM playback / Explica un fallo de la app o del sonido
+title: "[Bug] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Manager version / Versión de la app
+      placeholder: 0.7.2
+    validations:
+      required: true
+  - type: input
+    id: setup
+    attributes:
+      label: POD Go firmware and Windows version / Firmware y versión de Windows
+      description: Include whether original or custom firmware is installed. / Indica si tienes el firmware original o el custom.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and result / Pasos y resultado
+      description: What did you do, what happened and what did you expect? / ¿Qué hiciste, qué pasó y qué esperabas?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Optional log excerpt / Fragmento de registro opcional
+      description: Remove personal file paths before sharing. Do not attach backups or private captures. / Quita las rutas personales. No adjuntes backups ni capturas privadas.
+      render: text

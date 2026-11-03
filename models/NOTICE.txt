@@ -1,0 +1,10 @@
+Developed by Conr4d.nam
+Author / modeled_by: conr4daudio
+
+Included with the owner's permission to redistribute it with this project.
+The built-in Model 0 uses the A2 Lite submodel at an output level of -5 dB.
+For other uses of this capture, contact conr4daudio.
+
+The software licence does not change the licences of other NAM captures
+that users load themselves.
+

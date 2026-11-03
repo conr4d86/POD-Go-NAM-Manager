@@ -1,0 +1,15 @@
+* text=auto eol=lf
+*.cs text eol=crlf
+*.ps1 text eol=crlf
+*.py text eol=lf
+*.md text eol=lf
+*.png binary
+*.ico binary
+*.wav binary
+*.nam -text
+# Preserve the exact pinned upstream bytes checked by SOURCE-REVIEW.json.
+third_party/** -text
+
+*.jpg binary
+*.JPG binary
+*.jpeg binary

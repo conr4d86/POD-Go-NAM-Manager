@@ -1,0 +1,12 @@
+build/
+__pycache__/
+*.pyc
+*.hxf
+*.l6ia
+*.bin
+*.nam
+*.wav
+.DS_Store
+.venv/
+.pytest_cache/
+!tools/ramboot/*.bin

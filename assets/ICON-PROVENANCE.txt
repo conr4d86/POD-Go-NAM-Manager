@@ -1,0 +1,19 @@
+POD Go NAM Manager icon, 2026-11-03.
+Created using the built-in imagegen tool; reference aesthetic supplied by Conrad.
+Final image copied into this project, not referenced from generated-image cache.
+
+Initial prompt:
+Square icon, black amplifier-tolex texture, bright green rounded border.
+Exact heading POD GO NAM; central vector-style POD Go pedalboard;
+exact footer MANAGER. Transparent outside the rounded square.
+
+User-directed revisions:
+Replace the illustrated LINE6 badge with NAM above POD GO.
+Add a thin warm-white outlined badge with gently angled ends around NAM.
+Keep the heading, footer, screen, controls, footswitches, pedal and transparency.
+
+ICO packaging:
+assets/BuildIcon.cs writes PNG-encoded 16, 24, 32, 48, 64, 128, 256 px entries.
+16-48 px use a separate simple code-drawn pedalboard mark for legibility.
+64-256 px use the full generated artwork, resized only for Windows ICO packaging.
+BuildIcon.cs does not require an image-generation API or external imaging package.

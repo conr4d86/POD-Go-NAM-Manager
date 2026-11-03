@@ -1,0 +1,286 @@
+{
+  "repository": "nocaseguy/hx-stomp-nam-lite",
+  "revision": "2e801641df4a083c29ee13c5718c047d336ef692",
+  "source_url": "https://codeload.github.com/nocaseguy/hx-stomp-nam-lite/zip/2e801641df4a083c29ee13c5718c047d336ef692",
+  "fetched_utc": "2026-11-01T10:09:13.148254+00:00",
+  "archive_sha256": "cfdb8b916c7e52b16f79832bf3fd0b1028ca699a25a142afb5ef86a98cfc050c",
+  "source_code_executed": false,
+  "hardware_accessed": false,
+  "files": [
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 1065,
+      "sha256": "064ff4d89f0d5e4cde33ff3d6329e67bc4a329c0d9c964292f1ea7fecb5c88ac"
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "bytes": 675,
+      "sha256": "0da0c034ee56f8f8c67ce718adf6756e4efdf1bad9a4a3a322dbc87cff3d7820"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 110,
+      "sha256": "44c4ff14626e3bdacc128b87bdd279d917a08d0fdef244f0171569655661beaf"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 1704,
+      "sha256": "681e44506ba389ec36a609998d79e71b049ebb3aedfdeccc898114b8ba4d06ee"
+    },
+    {
+      "path": "RAM_RUN.md",
+      "bytes": 5746,
+      "sha256": "1c5ded81ebc2eceea5ac1c028f196ebdd4218c05fade278a67410a12c760d225"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18242,
+      "sha256": "a9430586a9e09d195ffc480d17d148fa3d3bd428d5689e79009d4baaea4f85a0"
+    },
+    {
+      "path": "build.py",
+      "bytes": 4702,
+      "sha256": "8d70a109f88c773726ec3cee714d48ef98dca531b126f45f50336f82367ff09b"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 278,
+      "sha256": "644a460a74ba8020d1314cb92009a52d693e03b1ae98cac1e55e9653ab418709"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "bytes": 13,
+      "sha256": "a89575b0722e9293ed60e4ef24dda5deee325a7814b418899d6c0e9fdc532e86"
+    },
+    {
+      "path": "src/ramboot/Makefile",
+      "bytes": 1287,
+      "sha256": "d02880ac46c2dcfa90e0ab063b12e2740fe99e948ccb6fa0ad2ae809d2c8e161"
+    },
+    {
+      "path": "src/ramboot/dfu.c",
+      "bytes": 1390,
+      "sha256": "6b5c03f230f4d95ef30f76a2138e27a0708a56ed174915ef520b379f9d6f8fd2"
+    },
+    {
+      "path": "src/ramboot/dfu.h",
+      "bytes": 411,
+      "sha256": "5d75043afe637376fc662bc5f7f1f6dbc1cc16efd07d41fe45b5407f4d028c93"
+    },
+    {
+      "path": "src/ramboot/emmc.h",
+      "bytes": 9684,
+      "sha256": "412412f5f953fc2f2400fa429f1efd7842b0f1f085441779c94c1b55cc9295d6"
+    },
+    {
+      "path": "src/ramboot/lpc4350.h",
+      "bytes": 2964,
+      "sha256": "da9e153b459487e091d4b0b391ef821fde935ebf52f0a3c26b7f5ffe62571815"
+    },
+    {
+      "path": "src/ramboot/lpc4350_ram.ld",
+      "bytes": 850,
+      "sha256": "a835d62223b31f689cc80d09b4b2ba56096d8a7457d5b20e814e8c2104c79629"
+    },
+    {
+      "path": "src/ramboot/mkbootimg.py",
+      "bytes": 1374,
+      "sha256": "7b69e3393bce8030c2865e7407bf62d66385503b6047b45601f36285bfdf35cc"
+    },
+    {
+      "path": "src/ramboot/ramboot.c",
+      "bytes": 10094,
+      "sha256": "81b9b06424682ed2f3529c4b8438c02ec618d1eda128879657319b0baa9eb1ef"
+    },
+    {
+      "path": "src/ramboot/ramboot.h",
+      "bytes": 1956,
+      "sha256": "4fc65164d266a79f58dd831aaf4d51a6c053956774ae23dad492f1afacda00b9"
+    },
+    {
+      "path": "src/ramboot/ramboot_hook.c",
+      "bytes": 6794,
+      "sha256": "c0faf244527fbe87c6851b46bc6f931374f4913abf6d405a98a15ea64a3c55a3"
+    },
+    {
+      "path": "src/ramboot/ramboot_hook.ld",
+      "bytes": 472,
+      "sha256": "0e8d678cb9492c1d1ea62df619a619074e551d388f6adb7e6dfaaccacc7022ef"
+    },
+    {
+      "path": "src/ramboot/sdram.h",
+      "bytes": 6604,
+      "sha256": "b386d9bd01d734c690293d1cb486daa45914d90bab4356ec926a9ff8383e90f1"
+    },
+    {
+      "path": "src/ramboot/startup.c",
+      "bytes": 1654,
+      "sha256": "1b9251118b49213d2e3e62ce527bcbaed7eed0043c9ff074e62e45f50f5d7d96"
+    },
+    {
+      "path": "src/ramboot/usb_mon.h",
+      "bytes": 7614,
+      "sha256": "808d4e26143c23df467a969f9aa950bb55260e4839abcaf995154f9df00e48e3"
+    },
+    {
+      "path": "src/sharc/nam_a2.asm",
+      "bytes": 5366,
+      "sha256": "6f17580596ebc9909adcba7711c9c4ec9ec91485d33fd02fcd1e2254ff8d1577"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 1303,
+      "sha256": "199018ebbdc1efc31a75666e698cfc276a54beb55b6cac153940fba2a44750ac"
+    },
+    {
+      "path": "tests/ramrun_fake.js",
+      "bytes": 10817,
+      "sha256": "24afe2a5e7dfb403c09f4a763b0877b38e987e6deb25021e1ab79cd1fadea108"
+    },
+    {
+      "path": "tests/test_firmware.py",
+      "bytes": 1399,
+      "sha256": "b96d3ce3478b9623130aabc6d6b6bcecb50f58b836d18c141aa58510b5bca28c"
+    },
+    {
+      "path": "tests/test_multi_kernel.py",
+      "bytes": 543,
+      "sha256": "d6281b85502803c9d6d330e04f9d0fe572297eefe0bd1705f030ca328037902e"
+    },
+    {
+      "path": "tests/test_nam_lite.py",
+      "bytes": 3878,
+      "sha256": "9545dca63d9057cb1d9d4d1db5357bff8764d1479585f4387fd7bcb3522ccaae"
+    },
+    {
+      "path": "tests/test_patch_amp.py",
+      "bytes": 1551,
+      "sha256": "236bbb2c64adb3784f74bb16ce44f5bd55e467aee735bba76ddfb2ced99965a4"
+    },
+    {
+      "path": "tests/test_ramrun.py",
+      "bytes": 3990,
+      "sha256": "b45c3fbe9b55277cbeb93fb4034704e10d48903fe2bb584a370f5a662d34daef"
+    },
+    {
+      "path": "tests/test_ssim.py",
+      "bytes": 1049,
+      "sha256": "86cf3c660de5a02e97696cd7ca3f7d5020e3244799a5f163c3e8a36800536c59"
+    },
+    {
+      "path": "tests/test_web_build.py",
+      "bytes": 2471,
+      "sha256": "d80c1e4e7aa16ec886bc50dfc174b5e132ee87eb715bdc4d7f785f33d931681d"
+    },
+    {
+      "path": "tests/test_web_i18n.py",
+      "bytes": 2269,
+      "sha256": "42a11df62e5329c9ca5dd42a34e7de7eb3b00779bc6bbaa9fa449cf705a92452"
+    },
+    {
+      "path": "tests/test_web_parity.py",
+      "bytes": 4263,
+      "sha256": "df1d462d7125265f07b273654389db0eb7691d41461ce1f8e5c9f0f4e30ae094"
+    },
+    {
+      "path": "tools/hxf.py",
+      "bytes": 4386,
+      "sha256": "7e75b2d7f89497bf70b5932fd60eafd7b1c109daafa4c20b3f4ecdf9544d2cda"
+    },
+    {
+      "path": "tools/hxf_ram.py",
+      "bytes": 19683,
+      "sha256": "2180f8e24b47e71ea5b765587006e26cf977f18f4bacdae2c84a38ff730ea252"
+    },
+    {
+      "path": "tools/kit_patch_amp.py",
+      "bytes": 86421,
+      "sha256": "2bde830c81942a9cba8505efa70381b59c42b4dcd7fb17f27126bc8dede42a92"
+    },
+    {
+      "path": "tools/l6ia.py",
+      "bytes": 6873,
+      "sha256": "be0949667a58c31d21c34d97f99d21cf83f1b4a433e42dc9894653d9b2e5a401"
+    },
+    {
+      "path": "tools/l6ia_verify.py",
+      "bytes": 2471,
+      "sha256": "51e214ee7ba9d88f0b204a9bd311c0a4f70d909f4201bc8aa19325922435e1d2"
+    },
+    {
+      "path": "tools/nam2ir.py",
+      "bytes": 4999,
+      "sha256": "896e4398c5a86404251dabdab8b866e421cc78e09808f58ba25f3c6bcdb01c45"
+    },
+    {
+      "path": "tools/patch_amp.py",
+      "bytes": 79566,
+      "sha256": "ef7ebaa4b663b1208a1e237eec07a2bb35cd1fdb5ce7b9d671d1fcf12c8e8c53"
+    },
+    {
+      "path": "tools/sharc/entry4_blob.py",
+      "bytes": 6035,
+      "sha256": "709a18bb6c284c0f86fec6d231ba99f815c550ac2eedb4f40249e76950918314"
+    },
+    {
+      "path": "tools/sharc/nam_lite.py",
+      "bytes": 11463,
+      "sha256": "7a2a88981cc649af05f627f7f1df4b493162b4ab33a9ea75622039a0b1b44d3c"
+    },
+    {
+      "path": "tools/sharc/nam_multi.py",
+      "bytes": 56911,
+      "sha256": "e6d4d26399dbdfdd6306e29e7c5d9922456c96e043fb470493a59d52de662fbd"
+    },
+    {
+      "path": "tools/sharc/nam_multi_kernel.asm",
+      "bytes": 43184,
+      "sha256": "c8b890d6917912524446c7d06211f38fe6445c7da113f69d19a578dc5a72880e"
+    },
+    {
+      "path": "tools/sharc/nam_pack.py",
+      "bytes": 5331,
+      "sha256": "70088ccd57f3a7ce787d0fead3a317eae10720fe28e5da68f86125f5dfc8da4d"
+    },
+    {
+      "path": "tools/sharc/recips_table.json",
+      "bytes": 560,
+      "sha256": "2b1012a3bf6e84954ac075e6c2140e8d53d46683641477bcdef91c3efcc493bc"
+    },
+    {
+      "path": "tools/sharc/sasm.py",
+      "bytes": 30202,
+      "sha256": "1246a9aa4da009e319d6aa71a989a616d56cc739d8fd02f558d727ac1959f697"
+    },
+    {
+      "path": "tools/sharc/ssim.py",
+      "bytes": 45267,
+      "sha256": "b5542a3f5d990cc742e53143b2211a73ea34493b46eb1842c053abb71142d1d0"
+    },
+    {
+      "path": "web/firmware-worker.js",
+      "bytes": 8586,
+      "sha256": "0aedc4de7c58f186967fab3558e6ecff4b3aebc028c63b1aafc52d8c7d687b7e"
+    },
+    {
+      "path": "web/index.html",
+      "bytes": 212530,
+      "sha256": "dd327a30ba50e9d578a991d936e1ed349ae0ce9bd3352bacb0924d0bf3e18a5e"
+    },
+    {
+      "path": "web/nam2ir-core.js",
+      "bytes": 10011,
+      "sha256": "de7c7c9b74fe0f6b9abdb23b2f41c3b92507e52f4360578e892d98a6939dc710"
+    },
+    {
+      "path": "web/ramrun.js",
+      "bytes": 21186,
+      "sha256": "040d17223ccde1cc49574a93805f8eac139edee092ec5ea50cd9113c9c40101e"
+    }
+  ]
+}
