@@ -1,5 +1,18 @@
 # Quick start
 
+## Install custom firmware for the first time
+
+**Before starting:** create a backup in POD Go Edit and keep its `.pgb`.
+CF NAM Conr4d is included in the app. Close the other Line 6 applications.
+
+1. Open Manager on **Firmware and recovery** and click **Connect POD Go**.
+2. Click **CF NAM Conr4d** (included) and **Load your backup (.pgb)…**.
+3. Click **Install NAM firmware** and confirm **OK** in the backup reminder.
+
+Wait for the entire installation to finish. Check startup, presets and audio.
+Find **NAM A2 Lite** in the amp list; Model 0 is built-in.
+For your other captures, open **NAM Library** and follow the three actions below.
+
 ## Change a NAM — three actions
 
 Custom firmware must be installed and the library connected.
@@ -14,18 +27,9 @@ Optionally adjust the short name and output level first. The default is −5 dB.
 Replacing an occupied NAM requires the replacement checkbox and saves a backup.
 Cabinet IRs are not overwritten.
 
-## Install custom firmware for the first time
-
-**Before starting:** create a backup in POD Go Edit and keep its `.pgb`.
-CF NAM Conr4d is included in the app. Close the other Line 6 applications.
-
-1. Open Manager on **Firmware and recovery** and click **Connect POD Go**.
-2. Click **CF NAM Conr4d** (included) and **Load your backup (.pgb)…**.
-3. Click **Install NAM firmware** and confirm **OK** in the backup reminder.
-
-Wait for the entire installation to finish. Check startup, presets and audio.
-Find **NAM A2 Lite** in the amp list; Model 0 is built-in.
-For your other captures, open **NAM Library** and follow the three actions above.
+The value above **Model** shows its number and short name. Model 0 displays
+`0. Dev by Conr4d`; the block title remains **Amp NAM A2 Lite**.
+Upload an old capture again with this version to add its short name.
 
 ## Language
 
@@ -37,7 +41,3 @@ It is disabled during transfers.
 **Load Official Firmware…** → select the original 2.50 → load your backup in
 the app → restore. Afterwards, load your backup in **POD Go Edit** to restore
 your previous presets.
-
-The value above **Model** shows its number and short name. Model 0 displays
-`0. Dev by Conr4d`; the block title remains **Amp NAM A2 Lite**.
-Upload an old capture again with this version to add its short name.

@@ -1,4 +1,4 @@
-# 0.7.2 preview — hardware review in progress
+# 0.7.2 — CF incluido / Custom firmware included
 
 - Unified NAM library and firmware/recovery application.
 - Spanish/English selector; firmware page opens first.
@@ -11,7 +11,7 @@
 
 The source rebuild, ARM name tests and app fixtures pass offline. The v8
 display still needs manual hardware verification.
-This is an experimental prerelease, not a stable hardware-validated version.
+Physical validation details remain documented in VALIDATION.md.
 
 
 The public download is now the exact existing 0.7.2 EXE, with the CF and engine

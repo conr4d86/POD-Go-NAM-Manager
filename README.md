@@ -8,28 +8,9 @@ Run **NAM A2 Lite inside your POD Go**, and change captures over USB without
 reinstalling firmware for each model. One Windows app provides **Firmware and
 recovery** and a **NAM Library**, with Spanish and English interfaces.
 
-**Experimental preview.** The earlier NAM firmware and USB capture upload
-have been tested with audio on a POD Go. The v8 Model value display and this public,
-bilingual app are still awaiting the complete hardware test. Offline checks
-are described in [validation](docs/VALIDATION.md).
+The test status is listed in [validation](docs/VALIDATION.md).
 
 [Download for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.7.2/PODGoNamManager.exe)
-
-## Change a NAM in three actions
-
-With custom firmware installed and the library connected:
-
-1. **Open NAM…** — choose your capture.
-2. **Choose a Model slot** — empty slots and existing NAMs are clearly marked.
-3. **Upload to Model…** — wait for upload and full readback verification.
-
-Select that Model in the NAM A2 Lite amp block on the pedalboard. You can then
-disconnect the computer: the POD Go processes the audio itself.
-
-Use the **short name** field for a Model value such as `53. FRIEDMAN HBE`. Existing
-captures uploaded with older Manager versions need uploading again to add a
-name. An occupied NAM requires **Replace this NAM**, with a verified backup.
-Cabinet IRs are protected. Output defaults to **−5 dB** and is adjustable. Names are shortened to fit the screen; the app previews the result.
 
 ## First installation
 
@@ -52,6 +33,22 @@ Complete instructions: [Quick start](docs/QUICKSTART.md).
 ![Firmware and recovery — English interface preview](assets/screenshots/firmware-en.png)
 
 *Offline interface preview; the current hardware-validation status is listed below.*
+
+## Change a NAM in three actions
+
+With custom firmware installed and the library connected:
+
+1. **Open NAM…** — choose your capture.
+2. **Choose a Model slot** — empty slots and existing NAMs are clearly marked.
+3. **Upload to Model…** — wait for upload and full readback verification.
+
+Select that Model in the NAM A2 Lite amp block on the pedalboard. You can then
+disconnect the computer: the POD Go processes the audio itself.
+
+Use the **short name** field for a Model value such as `53. FRIEDMAN HBE`. Existing
+captures uploaded with older Manager versions need uploading again to add a
+name. An occupied NAM requires **Replace this NAM**, with a verified backup.
+Cabinet IRs are protected. Output defaults to **−5 dB** and is adjustable. Names are shortened to fit the screen; the app previews the result.
 
 ## Models, slots and cabinets
 

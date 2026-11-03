@@ -37,7 +37,7 @@ def main():
     dest=ROOT/'dist';dest.mkdir(exist_ok=True)
     files=source_files()
     inventory=json.dumps({name:SHA(data) for name,data in files},indent=2).encode()
-    source=dest/f'PODGoNAMManager-{VERSION}-source-PREVIEW.zip'
+    source=dest/f'PODGoNAMManager-{VERSION}-source.zip'
     archive(source,files+[('SOURCE-SHA256.json',inventory)])
     exe=(ROOT/'build/app/PODGoNamManager.exe').read_bytes()
     assert SHA(exe)=='8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0','Publish the exact existing app'
@@ -45,15 +45,15 @@ def main():
     assert exe[:2]==b'MZ'
     catalogue=json.loads((ROOT/'build/app/known-models.json').read_text(encoding='utf-8-sig'))
     assert catalogue==[],'Public catalogue must be empty'
-    review=('POD Go NAM Manager '+VERSION+' - PREVIEW FOR HARDWARE REVIEW\n'
-      'Spanish / English interface. Public runtime adapter needs manual validation.\n'
+    review=('POD Go NAM Manager '+VERSION+'\n'
+      'Spanish / English interface. Custom firmware and installation engine included.\n'
       'Read docs/INICIO_RAPIDO.md or docs/QUICKSTART.md before setup.\n'
       'Create a POD Go Edit backup first. CF NAM Conr4d is included; no original HXF is needed to install it.\n'
       'The original official HXF is requested only when restoring official firmware.\n')
-    runtime=[('PODGoNamManager.exe',exe),('known-models.json',b'[]\n'),('PREVIEW.txt',review.encode())]
+    runtime=[('PODGoNamManager.exe',exe),('known-models.json',b'[]\n'),('LEEME.txt',review.encode())]
     runtime += [(name,data) for name,data in files if name in {'LICENSE','NOTICE','README.md','README.es.md'} or name.startswith('docs/') or name in {'assets/podgo-nam-manager.png','assets/Icon.JPG'}]
-    binary=dest/f'PODGoNAMManager-{VERSION}-windows-PREVIEW.zip';archive(binary,runtime)
-    report=dict(version=VERSION,status='PREPARED_FOR_EXPERIMENTAL_PRERELEASE',source_files=len(files),
+    binary=dest/f'PODGoNAMManager-{VERSION}-windows.zip';archive(binary,runtime)
+    report=dict(version=VERSION,status='PREPARED_FOR_RELEASE',source_files=len(files),
       artifacts=[dict(file=p.name,bytes=p.stat().st_size,sha256=SHA(p.read_bytes())) for p in (standalone,source,binary)],
       public_executable_sha256=SHA(exe),custom_firmware_bundled=True,original_official_hxf_bundled=False,native_engine_bundled=True,exact_existing_executable=True,
       hardware_signoff_pending=True)

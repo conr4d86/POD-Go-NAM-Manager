@@ -8,29 +8,9 @@ Ejecuta **NAM A2 Lite dentro de tu POD Go** y cambia de captura por USB sin
 reinstalar el firmware cada vez. Una aplicación Windows reúne **Firmware y
 recuperación** y **Biblioteca NAM**, con interfaz en español e inglés.
 
-**Versión experimental en pruebas.** El firmware NAM anterior y la carga
-de capturas por USB se probaron con audio en una POD Go. Quedan por terminar
-la prueba física de los nombres v8 en Model y de esta app pública bilingüe.
-Las comprobaciones locales están en [validación](docs/VALIDATION.md).
+El estado de las comprobaciones está en [validación](docs/VALIDATION.md).
 
 [Descargar para Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.7.2/PODGoNamManager.exe)
-
-## Cambiar de NAM: tres acciones
-
-Con el custom instalado y la biblioteca conectada:
-
-1. **Abrir NAM…** — elige tu captura.
-2. **Elegir posición Model** — la app distingue libres, NAM e IR protegidos.
-3. **Cargar en Model…** — espera a la verificación de la transferencia.
-
-Selecciona ese Model en el bloque NAM A2 Lite de la pedalera. Después puedes
-desconectar el ordenador: el audio se procesa dentro de la POD Go.
-
-El campo **Nombre corto** permite mostrar, por ejemplo, `53. FRIEDMAN HBE`.
-Para añadir el nombre a un NAM cargado con una versión anterior, vuelve a
-enviarlo. Para sustituir un NAM ocupado, marca **Sustituir este NAM**; la app
-conserva una copia previa. Los IR de pantalla están protegidos.
-La salida inicial es **−5 dB**, ajustable. El nombre se acorta si hace falta para caber; la app muestra el resultado previsto.
 
 ## Primera instalación
 
@@ -53,6 +33,23 @@ Guía completa: [Inicio rápido](docs/INICIO_RAPIDO.md).
 ![Firmware y recuperación — vista previa en español](assets/screenshots/firmware-es.png)
 
 *Vista previa local de la interfaz; el estado de las pruebas físicas se indica abajo.*
+
+## Cambiar de NAM: tres acciones
+
+Con el custom instalado y la biblioteca conectada:
+
+1. **Abrir NAM…** — elige tu captura.
+2. **Elegir posición Model** — la app distingue libres, NAM e IR protegidos.
+3. **Cargar en Model…** — espera a la verificación de la transferencia.
+
+Selecciona ese Model en el bloque NAM A2 Lite de la pedalera. Después puedes
+desconectar el ordenador: el audio se procesa dentro de la POD Go.
+
+El campo **Nombre corto** permite mostrar, por ejemplo, `53. FRIEDMAN HBE`.
+Para añadir el nombre a un NAM cargado con una versión anterior, vuelve a
+enviarlo. Para sustituir un NAM ocupado, marca **Sustituir este NAM**; la app
+conserva una copia previa. Los IR de pantalla están protegidos.
+La salida inicial es **−5 dB**, ajustable. El nombre se acorta si hace falta para caber; la app muestra el resultado previsto.
 
 ## Modelos, posiciones y pantallas
 

@@ -1,5 +1,18 @@
 # Inicio rápido
 
+## Instalar el custom por primera vez
+
+**Antes de empezar:** haz un backup con POD Go Edit y conserva el `.pgb`.
+El CF NAM Conr4d viene incluido en la app. Cierra las otras aplicaciones Line 6.
+
+1. Abre Manager, en **Firmware y recuperación**, y pulsa **Conectar POD Go**.
+2. Pulsa **CF NAM Conr4d** (ya incluido) y **Carga tu backup (.pgb)…**.
+3. Pulsa **Instalar CF NAM** y confirma **OK** en el aviso del backup.
+
+Espera a que termine toda la instalación. Comprueba arranque, presets y audio.
+Busca **NAM A2 Lite** en la lista de amplificadores; Model 0 es el integrado.
+Para tus otras capturas, abre **Biblioteca NAM** y sigue las tres acciones de abajo.
+
 ## Cambiar un NAM — tres acciones
 
 Necesitas el custom instalado y la biblioteca conectada.
@@ -14,18 +27,9 @@ Opcional: cambia el nombre corto y el nivel antes de enviar. Por defecto: −5 d
 Si actualizas una posición ocupada, marca la casilla de sustitución; se guarda
 una copia previa. Los IR de pantalla no se sustituyen.
 
-## Instalar el custom por primera vez
-
-**Antes de empezar:** haz un backup con POD Go Edit y conserva el `.pgb`.
-El CF NAM Conr4d viene incluido en la app. Cierra las otras aplicaciones Line 6.
-
-1. Abre Manager, en **Firmware y recuperación**, y pulsa **Conectar POD Go**.
-2. Pulsa **CF NAM Conr4d** (ya incluido) y **Carga tu backup (.pgb)…**.
-3. Pulsa **Instalar CF NAM** y confirma **OK** en el aviso del backup.
-
-Espera a que termine toda la instalación. Comprueba arranque, presets y audio.
-Busca **NAM A2 Lite** en la lista de amplificadores; Model 0 es el integrado.
-Para tus otras capturas, abre **Biblioteca NAM** y sigue las tres acciones de arriba.
+El valor encima de **Model** muestra número y nombre corto. Model 0 muestra
+`0. Dev by Conr4d`; el título del bloque sigue siendo **Amp NAM A2 Lite**.
+Para poner nombre a una carga antigua, vuelve a enviarla desde esta versión.
 
 ## Idioma
 
@@ -37,7 +41,3 @@ Durante una transferencia permanece deshabilitado.
 **Cargar Firmware Oficial…** → seleccionar el original 2.50 → cargar el backup
 en la app → restaurar. Después, carga tu backup en **POD Go Edit** para recuperar
 los presets anteriores.
-
-El valor encima de **Model** muestra número y nombre corto. Model 0 muestra
-`0. Dev by Conr4d`; el título del bloque sigue siendo **Amp NAM A2 Lite**.
-Para poner nombre a una carga antigua, vuelve a enviarla desde esta versión.
