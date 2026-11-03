@@ -1,6 +1,6 @@
 """Prepare review ZIPs locally. Does not publish or access GitHub/USB."""
 from pathlib import Path
-import hashlib,json,re,zipfile
+import hashlib,json,re,zipfile,shutil
 
 ROOT=Path(__file__).resolve().parents[1]
 VERSION='0.7.2'
@@ -40,20 +40,22 @@ def main():
     source=dest/f'PODGoNAMManager-{VERSION}-source-PREVIEW.zip'
     archive(source,files+[('SOURCE-SHA256.json',inventory)])
     exe=(ROOT/'build/app/PODGoNamManager.exe').read_bytes()
+    assert SHA(exe)=='8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0','Publish the exact existing app'
+    standalone=dest/'PODGoNamManager.exe';standalone.write_bytes(exe)
     assert exe[:2]==b'MZ'
     catalogue=json.loads((ROOT/'build/app/known-models.json').read_text(encoding='utf-8-sig'))
     assert catalogue==[],'Public catalogue must be empty'
     review=('POD Go NAM Manager '+VERSION+' - PREVIEW FOR HARDWARE REVIEW\n'
       'Spanish / English interface. Public runtime adapter needs manual validation.\n'
       'Read docs/INICIO_RAPIDO.md or docs/QUICKSTART.md before setup.\n'
-      'Create a POD Go Edit backup first. Original POD Go 2.50 HXF is supplied by the user.\n'
-      'Source archive is supplied alongside this binary archive. No complete HXF or vendor DLLs are bundled.\n')
+      'Create a POD Go Edit backup first. CF NAM Conr4d is included; no original HXF is needed to install it.\n'
+      'The original official HXF is requested only when restoring official firmware.\n')
     runtime=[('PODGoNamManager.exe',exe),('known-models.json',b'[]\n'),('PREVIEW.txt',review.encode())]
     runtime += [(name,data) for name,data in files if name in {'LICENSE','NOTICE','README.md','README.es.md'} or name.startswith('docs/') or name in {'assets/podgo-nam-manager.png','assets/Icon.JPG'}]
     binary=dest/f'PODGoNAMManager-{VERSION}-windows-PREVIEW.zip';archive(binary,runtime)
     report=dict(version=VERSION,status='PREPARED_FOR_EXPERIMENTAL_PRERELEASE',source_files=len(files),
-      artifacts=[dict(file=p.name,bytes=p.stat().st_size,sha256=SHA(p.read_bytes())) for p in (source,binary)],
-      public_executable_sha256=SHA(exe),contains_complete_hxf=False,contains_vendor_dlls=False,
+      artifacts=[dict(file=p.name,bytes=p.stat().st_size,sha256=SHA(p.read_bytes())) for p in (standalone,source,binary)],
+      public_executable_sha256=SHA(exe),custom_firmware_bundled=True,original_official_hxf_bundled=False,native_engine_bundled=True,exact_existing_executable=True,
       hardware_signoff_pending=True)
     (dest/'RELEASE-MANIFEST.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     (dest/'SHA256SUMS.txt').write_text(''.join(f"{a['sha256']}  {a['file']}\n" for a in report['artifacts']),encoding='utf-8')

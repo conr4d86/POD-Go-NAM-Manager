@@ -13,7 +13,7 @@ have been tested with audio on a POD Go. The v8 Model value display and this pub
 bilingual app are still awaiting the complete hardware test. Offline checks
 are described in [validation](docs/VALIDATION.md).
 
-[Download for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/tag/v0.7.2-preview)
+[Download for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.7.2/PODGoNamManager.exe)
 
 ## Change a NAM in three actions
 
@@ -34,14 +34,13 @@ Cabinet IRs are protected. Output defaults to **−5 dB** and is adjustable. Nam
 ## First installation
 
 Make a backup in **POD Go Edit** first and keep its `.pgb` file. Install the
-official POD Go driver and Line 6 Central, then close the Line 6 applications.
-Keep the original **POD Go 2.50 HXF** from [Line 6 Downloads](https://line6.com/software/).
+official POD Go driver, then close POD Go Edit and other Line 6 applications.
+The **CF NAM Conr4d is included**. You do not need an original HXF to install it.
 
 Open Manager; it starts on **Firmware and recovery**:
 
 1. **Connect POD Go** in normal startup mode.
-2. Choose **CF NAM Conr4d** and **Load your backup (.pgb)…**. The first preparation
-   also asks for your original 2.50 HXF; the app applies the included patch locally.
+2. Choose **CF NAM Conr4d** (included) and **Load your backup (.pgb)…**.
 3. Click **Install NAM firmware**, read the backup reminder and confirm **OK**.
 
 Wait for the final result and normal startup before checking audio. This is a
@@ -88,14 +87,15 @@ factory reset as part of this guide. See [recovery](docs/RECOVERY.md).
 ## Build and test
 
 - Windows, .NET Framework 4.5+ and Python 3.10+ for source preparation.
-- `powershell -ExecutionPolicy Bypass -File .\build-windows.ps1`
-- `powershell -ExecutionPolicy Bypass -File .\test-offline.ps1`
-- The firmware source rebuild additionally uses `keystone-engine==0.9.2`:
-  `python tools/build_firmware.py path/to/original.hxf`.
+- Build the CF first: `python tools/build_firmware.py path/to/original.hxf`.
+- Then: `powershell -ExecutionPolicy Bypass -File .\build-windows.ps1`
+- Audit without hardware: `powershell -ExecutionPolicy Bypass -File .\test-offline.ps1`
+- These are developer steps; the downloadable EXE already includes the CF.
 
-The app build embeds our source-generated patch and artwork. It does **not**
-embed a complete HXF or Line 6 DLLs. The firmware engine uses the user's installed
-Line 6 Central files. The stock HXF and generated files remain local.
+The download contains the existing 0.7.2 executable, with **CF NAM Conr4d and
+the firmware engine included**. The original official HXF is requested only
+when the user chooses to restore official firmware. Developer source builds
+use locally installed engine files; see the build guide.
 See [building](docs/BUILDING.md) for reproducibility and release packaging.
 
 ## Credits and licence

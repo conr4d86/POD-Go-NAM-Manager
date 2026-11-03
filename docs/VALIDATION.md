@@ -12,7 +12,7 @@ tests. It is not a claim that all hardware revisions have been tested.
 | v8 names in the Model value | 37 ARM emulator cases using native IR-name getter and font metrics | Offline passed; screen on hardware pending |
 | Private test app 0.7.2 | 33 NAM + 27 UI/lease + 4 built-in + 6 bilingual/package checks | Offline passed; user trial pending |
 | Clean source ZIP rebuild | Fresh extraction compiles the app and recreates the exact v8 HXF from original | Offline passed |
-| Public app build | 33 NAM fixtures and 8 integration groups, including reconstruction from original | Offline passed; public runtime adapter not hardware validated |
+| Public download | Exact existing 0.7.2 executable, SHA-256 `8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0` | Bundled CF and engine; same app as the user trial |
 
 v8 preserves the v6 DSP code and built-in capture byte-for-byte. Only the ARM
 application UI changes relative to v6; the other 16 archive images, including
@@ -41,8 +41,7 @@ and the ordinary HXF validator checks all 17 images before installation.
    **Model**, unchanged **Amp NAM A2 Lite** title.
 2. Upload a named capture through the library; select it, verify its displayed
    short name and audio, and confirm it persists after a normal restart.
-3. Check the public package's locally installed Central runtime adapter,
-   install/restore flow and both interface languages on the same device.
+3. Finish the install/restore flow and both interface languages on the same device.
 
 Results must be added only after they actually occur. No USB or SDK is opened
 by the offline tests. The public preview remains experimental pending these manual checks.

@@ -10,6 +10,10 @@
   after returning to official firmware.
 
 The source rebuild, ARM name tests and app fixtures pass offline. The v8
-display and public installer adapter still need manual hardware verification.
+display still needs manual hardware verification.
 This is an experimental prerelease, not a stable hardware-validated version.
 
+
+The public download is now the exact existing 0.7.2 EXE, with the CF and engine
+included. Installing CF NAM does not ask for the original firmware. Only the
+official-restoration option asks the user to select an original HXF.

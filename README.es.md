@@ -13,7 +13,7 @@ de capturas por USB se probaron con audio en una POD Go. Quedan por terminar
 la prueba física de los nombres v8 en Model y de esta app pública bilingüe.
 Las comprobaciones locales están en [validación](docs/VALIDATION.md).
 
-[Descargar para Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/tag/v0.7.2-preview)
+[Descargar para Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.7.2/PODGoNamManager.exe)
 
 ## Cambiar de NAM: tres acciones
 
@@ -35,15 +35,13 @@ La salida inicial es **−5 dB**, ajustable. El nombre se acorta si hace falta p
 ## Primera instalación
 
 Antes, crea un backup con **POD Go Edit** y conserva el `.pgb`. Instala el driver
-oficial de POD Go y Line 6 Central y cierra las aplicaciones Line 6.
-Ten a mano el **HXF original POD Go 2.50**, de
-[Line 6 Downloads](https://line6.com/software/).
+oficial de POD Go y cierra las aplicaciones Line 6.
+El **CF NAM Conr4d viene incluido**: no necesitas aportar un HXF para instalarlo.
 
 La app abre en **Firmware y recuperación**:
 
 1. **Conectar POD Go**, encendida normalmente.
-2. Elegir **CF NAM Conr4d** y **Carga tu backup (.pgb)…**. La primera preparación
-   pide también el original 2.50: la app aplica el parche incluido en tu PC.
+2. Elegir **CF NAM Conr4d** (incluido) y **Carga tu backup (.pgb)…**.
 3. Pulsar **Instalar CF NAM**, leer el aviso del backup y confirmar **OK**.
 
 Espera al resultado final y al arranque normal antes de comprobar el audio.
@@ -98,8 +96,9 @@ revisión `2e801641df4a083c29ee13c5718c047d336ef692`.
 Código GPL-3.0-or-later: [LICENSE](LICENSE) y [NOTICE](NOTICE).
 El NAM incluido tiene su propio [aviso](models/NOTICE.txt).
 
-La descarga contiene el parche y el código; no incluye HXF completos ni DLL de
-Line 6. La app utiliza los archivos de Line 6 Central instalados por el usuario.
+La descarga contiene el **mismo ejecutable 0.7.2**, con el CF NAM Conr4d y
+el motor de instalación incluidos. El archivo oficial se pide únicamente
+si eliges restaurar el firmware original.
 Compilación y pruebas: [BUILDING](docs/BUILDING.md).
 
 Proyecto independiente, no oficial y experimental, sin afiliación con Line 6 ni Yamaha.

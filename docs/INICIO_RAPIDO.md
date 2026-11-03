@@ -16,13 +16,11 @@ una copia previa. Los IR de pantalla no se sustituyen.
 
 ## Instalar el custom por primera vez
 
-**Antes de empezar:** haz un backup con POD Go Edit. Ten el `.pgb` y el HXF
-original POD Go 2.50. Driver oficial y Line 6 Central deben estar instalados;
-sus ventanas deben estar cerradas.
+**Antes de empezar:** haz un backup con POD Go Edit y conserva el `.pgb`.
+El CF NAM Conr4d viene incluido en la app. Cierra las otras aplicaciones Line 6.
 
 1. Abre Manager, en **Firmware y recuperación**, y pulsa **Conectar POD Go**.
-2. Pulsa **CF NAM Conr4d** y selecciona el original 2.50 cuando lo pida.
-   Después pulsa **Carga tu backup (.pgb)…** y elige tu copia.
+2. Pulsa **CF NAM Conr4d** (ya incluido) y **Carga tu backup (.pgb)…**.
 3. Pulsa **Instalar CF NAM** y confirma **OK** en el aviso del backup.
 
 Espera a que termine toda la instalación. Comprueba arranque, presets y audio.

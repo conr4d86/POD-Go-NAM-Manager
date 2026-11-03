@@ -17,6 +17,9 @@ See models/NOTICE.txt for the capture. The software GPL does not assign
 ownership of user-supplied NAM files, presets, IRs or firmware originals.
 
 Line 6 and Yamaha product names identify compatible hardware. This is an
-independent project. No Line 6 runtime DLLs or complete firmware image are
-included. The user supplies their installed tools and original firmware.
+independent project. The downloadable executable includes the custom firmware
+and its native installation engine. Original official HXF files are supplied
+by the user only for an official-firmware restoration. Third-party engine
+components and firmware retain their respective notices and licences; the
+project GPL notice does not relicense those components.
 

@@ -1,67 +1,47 @@
-# Building the app and firmware
+# Building from source — developers only
 
-Use Windows with .NET Framework's C# compiler and Python 3.10 or later. A
-32-bit Windows application is built because the installed Central engine is
-32-bit. No hardware connection is required for compilation or offline tests.
+The end-user download is the existing **PODGoNamManager.exe 0.7.2**, with the
+CF NAM Conr4d and installation engine already included. **Installing CF NAM
+does not ask for an original firmware file.** Only restoring official firmware
+requires selecting an official POD Go 2.50 HXF.
 
-## App
+## Developer source build
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\build-windows.ps1
-powershell -ExecutionPolicy Bypass -File .\test-offline.ps1
-```
-
-Output: `build/app/PODGoNamManager.exe`. The app includes artwork, translations
-and a compact firmware delta. It does not embed a full HXF or Central DLLs.
-The first CF preparation asks the user for the exact official POD Go 2.50 HXF.
-The app reconstructs the custom locally, validates all images, and keeps the
-result in the user's local application data. No firmware transfer starts
-until the user clicks Install and accepts the backup reminder.
-
-The firmware runtime loads the user's installed **Line 6 Central** files when
-the user connects for firmware operations. Developers can override its path
-with `PODGO_LINE6_CENTRAL`. Installing drivers and Central remains a separate
-user setup step. NAM library transfers use the direct USB implementation.
-
-## Firmware preferred source
+Windows, .NET Framework's 32-bit C# compiler and Python 3.10+ are required.
+Developers also need locally installed Line 6 Central engine files to create
+the embedded runtime. This is a build dependency, not an end-user setup step.
 
 ```powershell
 python -m pip install -r requirements-dev.txt
 python tools/build_firmware.py "C:\path\to\original.hxf"
 python tools/verify_ui.py build/POD_GO_NAM_Conr4d_v8.hxf
-python tools/make_recipe.py "C:\path\to\original.hxf" build/POD_GO_NAM_Conr4d_v8.hxf
 powershell -ExecutionPolicy Bypass -File .\build-windows.ps1
-powershell -ExecutionPolicy Bypass -File .\test-offline.ps1 -OfficialFirmware "C:\path\to\original.hxf"
+powershell -ExecutionPolicy Bypass -File .\test-offline.ps1
 ```
 
-The stock input is pinned by SHA-256. `firmware/port/` holds the POD Go port,
-including native loading geometry, the audio wrapper, graph reservations,
-catalogue integration, built-in capture and Model-value UI hook. The pinned
-upstream sources include the NAM kernel and SHARC assembler/simulator.
-This is sufficient to rebuild the reviewed v8 inflated archive without
-private project files. Generated vendor-derived images stay in `build/`.
+The original HXF above is used by developers to reconstruct the reviewed CF
+from preferred source. It is never requested by the CF installation button
+in the published app. `tools/make_bundle.py` bundles that custom HXF and the
+local engine files into `build/runtime.zip`. The stock HXF is excluded.
+Set `PODGO_LINE6_CENTRAL` to override the developer engine-file directory.
 
-`verify_ui.py` executes the patched Thumb instructions with Unicorn and the
-native name getter/font measurement routines. It uses generated firmware
-locally; no vendor ARM image is included as a test fixture. It does not
-validate the physical display or open USB.
+`test-offline.ps1` checks the assembly resource archive and validates all
+17 images in its bundled custom firmware. It does not run the app's Main,
+start the SDK or open USB. The optional workflow example remains in
+`docs/windows-offline-workflow.yml`; no hosted CI pass is claimed.
 
-## Packaging for review
+## Release packaging
 
 ```powershell
 python tools/package_release.py
 ```
 
-This produces source and Windows ZIP files plus SHA-256 manifests under
-`dist/`. Only selected source/assets are exported. Builds, presets, backups,
-runtime DLLs, full HXF images and local logs are excluded. The public package
-starts with an empty local capture catalogue. Keep the matching source ZIP
-with every binary release.
+Packaging publishes the exact existing 0.7.2 EXE, whose SHA-256 is
+`8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0`.
+The source ZIP contains the same application logic, with test-only paths made
+portable. Runtime ZIPs, backups, local logs and credentials are not put into
+the source repository. The downloadable EXE contains its CF and engine.
 
-The packaging command does not create a repository, authenticate to GitHub,
-push commits or publish a release. Hardware sign-off remains separate.
-
-
-The optional GitHub Actions definition is supplied as
-`docs/windows-offline-workflow.yml`. Local offline checks use `test-offline.ps1`;
-a hosted CI run is not claimed by this release.
+The packaging command creates local artifacts only; GitHub publication is a
+separate operation. Physical validation of the v8 display remains separate
+from source compilation and file verification.

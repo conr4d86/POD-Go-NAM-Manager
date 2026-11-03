@@ -16,13 +16,11 @@ Cabinet IRs are not overwritten.
 
 ## Install custom firmware for the first time
 
-**Before starting:** create a backup in POD Go Edit. Keep its `.pgb` and the
-original POD Go 2.50 HXF. Install the official driver and Line 6 Central, then
-close their windows.
+**Before starting:** create a backup in POD Go Edit and keep its `.pgb`.
+CF NAM Conr4d is included in the app. Close the other Line 6 applications.
 
 1. Open Manager on **Firmware and recovery** and click **Connect POD Go**.
-2. Click **CF NAM Conr4d** and choose the original 2.50 file when prompted.
-   Then click **Load your backup (.pgb)…** and choose your backup.
+2. Click **CF NAM Conr4d** (included) and **Load your backup (.pgb)…**.
 3. Click **Install NAM firmware** and confirm **OK** in the backup reminder.
 
 Wait for the entire installation to finish. Check startup, presets and audio.

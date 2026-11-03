@@ -69,11 +69,7 @@ sealed class StudioFirmwarePane:UserControl {
    if(engine!=null&&!engine.UsbClosed)throw new IOException("No se confirmó el cierre USB del motor. Se mantiene bloqueada la otra conexión.");ReleaseLeaseIfClosed();engine=null;UpdateUi();
   }finally{releasing=false;UpdateUi();}
  }
- async Task LoadCustom(){ClearNotice();firmware=null;localBusy=true;UpdateUi();try{
-   if(!PublicFirmware.HasOfficial){using(var d=new OpenFileDialog{Filter="Firmware oficial POD Go (*.hxf)|*.hxf",Title="Cargar Firmware Oficial"}){if(d.ShowDialog()!=DialogResult.OK)return;await Task.Run(()=>PublicFirmware.ImportOfficial(d.FileName));}}
-   string customPath=await Task.Run(()=>PublicFirmware.BuildCustom());await ReadFirmware(customPath);
-  }catch(Exception ex){Error(ex);}finally{localBusy=false;UpdateUi();}}
-
+ async Task LoadCustom(){ClearNotice();firmware=null;localBusy=true;UpdateUi();try{await Task.Run(()=>PortableRuntime.Prepare());await ReadFirmware(PortableRuntime.Custom);}catch(Exception ex){Error(ex);}finally{localBusy=false;UpdateUi();}}
  async Task LoadFirmware(string path){ClearNotice();firmware=null;localBusy=true;UpdateUi();try{await ReadFirmware(path,true);}catch(Exception ex){Error(ex);}finally{localBusy=false;UpdateUi();}}
  async Task ReadFirmware(string path,bool requireOfficial=false){firmware=null;fileName.Text="Verificando…";try{var file=await Task.Run(()=>FirmwareFile.Read(path));if(requireOfficial&&!file.IsOfficial)throw new InvalidDataException("Selecciona el firmware oficial POD Go 2.50.");ShowFirmware(file);Log("HXF validado SHA256="+file.Hash);}catch{fileName.Text="";throw;}}
  void ShowFirmware(FirmwareFile file){firmware=file;fileName.Text=file.IsOfficial?"Firmware oficial POD Go 2.50":"CF NAM Conr4d";}
@@ -86,7 +82,7 @@ sealed class StudioFirmwarePane:UserControl {
   ClearNotice();progress.Value=0;state.Text="Preparando la transferencia…";dispatch(selected,selectedBackup);
  }
  void UpdateUi(){if(IsDisposed)return;ReleaseLeaseIfClosed();bool active=engine!=null&&engine.Running,ready=engine!=null&&engine.TargetReady;bool busy=IsBusy||releasing,validFirmware=firmware!=null&&!firmware.IsWithdrawn,hasBackup=File.Exists(backup);connect.Enabled=!preview&&!busy&&!HasSession&&lease==null;disconnect.Enabled=!preview&&!busy&&HasSession;refresh.Enabled=identify.Enabled=!preview&&!busy&&active;if(ready)identify.Enabled=false;custom.Enabled=official.Enabled=backupButton.Enabled=!busy;device.Text=preview?"Vista previa local · USB cerrado":(ready?"✓ ":"")+ConnectionText;device.ForeColor=ready?accent:Color.Gainsboro;
-  ((StudioButton)connect).Marked=ready;((StudioButton)custom).Marked=validFirmware&&PortableRuntime.IsCustom(firmware);((StudioButton)official).Marked=validFirmware&&firmware.IsOfficial;((StudioButton)backupButton).Marked=hasBackup;
+  ((StudioButton)connect).Marked=ready;((StudioButton)custom).Marked=validFirmware&&firmware.Hash==PortableRuntime.CustomHash;((StudioButton)official).Marked=validFirmware&&firmware.IsOfficial;((StudioButton)backupButton).Marked=hasBackup;
   install.Enabled=!preview&&!busy&&ready&&validFirmware&&hasBackup;install.Text=firmware==null?"Selecciona un firmware":firmware.IsOfficial?"Restaurar oficial 2.50":"Instalar CF NAM";install.BackColor=install.Enabled?accent:Color.FromArgb(35,48,65);install.ForeColor=install.Enabled?bg:muted;
   if(noticeMessage.Length>0){state.Text=noticeMessage;state.ForeColor=noticeColor;}
   else if(engine==null||!engine.Busy){state.ForeColor=install.Enabled?accent:muted;
