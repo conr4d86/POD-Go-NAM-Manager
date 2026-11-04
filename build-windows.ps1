@@ -10,7 +10,7 @@ New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $OutputDirectory=(Resolve-Path -LiteralPath $OutputDirectory).Path
 $podCompiler='C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe'
 $podSources=@(Get-ChildItem -LiteralPath (Join-Path $podPublicRoot 'src') -Filter *.cs | ForEach-Object {Join-Path (Join-Path $podPublicRoot 'build\generated') $_.Name})
-$podArguments=@('/nologo','/platform:x86','/target:winexe','/main:StudioApp',"/out:$OutputDirectory\PODGoNamManager.exe",'/reference:System.Windows.Forms.dll','/reference:System.Drawing.dll','/reference:System.Core.dll','/reference:System.Web.Extensions.dll','/reference:System.IO.Compression.dll',"/resource:$podPublicRoot\build\runtime.zip,runtime.zip","/resource:$podPublicRoot\assets\en.json,en.json","/resource:$podPublicRoot\assets\podgo-nam-manager.png,podgo-icon.png","/win32icon:$podPublicRoot\assets\podgo-nam-manager.ico")+$podSources
+$podArguments=@('/nologo','/platform:x86','/target:winexe','/optimize+','/main:StudioApp',"/out:$OutputDirectory\PODGoNamManager.exe",'/reference:System.Windows.Forms.dll','/reference:System.Drawing.dll','/reference:System.Core.dll','/reference:System.Web.Extensions.dll','/reference:System.IO.Compression.dll',"/resource:$podPublicRoot\build\runtime.zip,runtime.zip","/resource:$podPublicRoot\assets\en.json,en.json","/resource:$podPublicRoot\tests\default-carrier.wav,reference-nam.wav","/resource:$podPublicRoot\assets\podgo-nam-manager.png,podgo-icon.png","/win32icon:$podPublicRoot\assets\podgo-nam-manager.ico")+$podSources
 & $podCompiler $podArguments
 if($LASTEXITCODE -ne 0){throw 'Public app compilation failed'}
 Set-Content -LiteralPath (Join-Path $OutputDirectory 'known-models.json') -Value '[]' -Encoding utf8

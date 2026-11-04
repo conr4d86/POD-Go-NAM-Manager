@@ -1,0 +1,14 @@
+using System;using System.Drawing;using System.Windows.Forms;using System.Threading.Tasks;
+
+sealed class NamVolumeDialog:Form {
+ readonly NumericUpDown volume=new NumericUpDown();readonly CheckBox automatic=new CheckBox();readonly Label state=new Label();readonly Button save=new StudioButton(),cancel=new StudioButton();readonly byte[] payload;readonly NamCatalogRecord record;bool analyzing;
+ public double VolumeDb{get{return (double)volume.Value;}}
+ public NamVolumeDialog(int model,string name,NamCatalogRecord levels,byte[] stored){record=levels;payload=stored;Text=UiText.T("Editar volumen")+" · Model "+model;ClientSize=new Size(540,235);StartPosition=FormStartPosition.CenterParent;FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=MinimizeBox=false;BackColor=Color.FromArgb(14,20,29);ForeColor=Color.Gainsboro;Font=new Font("Segoe UI",10);AutoScaleMode=AutoScaleMode.None;
+  Controls.Add(new Label{Text="Model "+model+" · "+name,Location=new Point(20,18),Size=new Size(500,28),AutoEllipsis=true,Font=new Font(Font,FontStyle.Bold)});
+  volume.SetBounds(20,67,90,28);volume.Minimum=-60;volume.Maximum=12;volume.DecimalPlaces=1;volume.Increment=.5M;volume.Value=(decimal)levels.OutputDb;volume.BackColor=Color.FromArgb(35,48,65);volume.ForeColor=Color.Gainsboro;Controls.Add(volume);Controls.Add(new Label{Text=UiText.T("Volumen (dB)"),Location=new Point(126,70),Size=new Size(180,25)});automatic.Text=UiText.T("Automático");automatic.AutoSize=true;automatic.Location=new Point(345,68);Controls.Add(automatic);
+  state.SetBounds(20,114,500,52);state.ForeColor=Color.Turquoise;state.Text=UiText.T("Referencia: Developed by Conr4d · −5 dB");Controls.Add(state);
+  save.Text=UiText.T("Guardar volumen");save.SetBounds(20,183,230,34);cancel.Text=UiText.T("Cancelar");cancel.SetBounds(270,183,230,34);foreach(var b in new[]{save,cancel}){b.FlatStyle=FlatStyle.Flat;b.BackColor=Color.FromArgb(35,48,65);b.ForeColor=ForeColor;Controls.Add(b);}cancel.DialogResult=DialogResult.Cancel;CancelButton=cancel;AcceptButton=save;
+  save.Click+=(s,e)=>{if(!analyzing){DialogResult=DialogResult.OK;Close();}};automatic.CheckedChanged+=async(s,e)=>{if(automatic.Checked)await Analyze();else volume.Enabled=true;};FormClosing+=(s,e)=>{if(analyzing)e.Cancel=true;};
+ }
+ async Task Analyze(){analyzing=true;volume.Enabled=automatic.Enabled=save.Enabled=cancel.Enabled=false;state.ForeColor=Color.Turquoise;state.Text=UiText.T("Analizando NAM con la referencia a −5 dB…");try{double db=await Task.Run(()=>NamLoudness.OutputFor(NamCapture.AdjustPayload(payload,0,-record.OutputDb)));volume.Value=(decimal)db;state.Text=UiText.T("Referencia: Developed by Conr4d · −5 dB");}catch(Exception e){automatic.Checked=false;state.Text=e.Message;state.ForeColor=Color.Salmon;}finally{analyzing=false;automatic.Enabled=save.Enabled=cancel.Enabled=true;volume.Enabled=!automatic.Checked;}}
+}

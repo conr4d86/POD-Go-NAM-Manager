@@ -18,7 +18,7 @@ static class LayoutTests {
      foreach(bool firmware in new[]{true,false}){window.Render(Path.Combine(output,(firmware?"firmware-":"nam-")+lang+"-"+size.Width+"x"+size.Height+".png"),firmware,53);if(!firmware)File.WriteAllText(Path.Combine(output,"bounds-"+lang+"-"+size.Width+".json"),new JavaScriptSerializer().Serialize(All(window).Select(c=>new{type=c.GetType().Name,text=c.Text.Length>80?c.Text.Substring(0,80):c.Text,bounds=c.Bounds.ToString(),client=c.ClientSize.ToString(),minimum=c.MinimumSize.ToString(),parent=c.Parent.GetType().Name})));}
     }
     Need(Math.Abs(window.LayoutScale-1)<.001,"Full size must return to 100 percent");
-    Need(All(window).OfType<CheckBox>().Single(c=>c.Name=="AutomaticInput").Checked,"Automatic default");
+    Need(All(window).OfType<CheckBox>().Single(c=>c.Name=="AutomaticVolume").Checked,"Automatic default");
     Need(!window.InstallEnabled&&PortableRuntime.Root==null&&StudioUsbGate.Owner=="","Offline isolation");
    }});
   }

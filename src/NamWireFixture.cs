@@ -1,6 +1,6 @@
 using System;using System.IO;using System.Linq;using System.Collections.Generic;using System.Text;
 // Offline protocol peer, never attached to a USB interface.
-sealed class NamFixtureDevice {public byte[] Stored;public string Name="";public int Slot=51;}
+sealed class NamFixtureDevice {public byte[] Stored;public string Name="";public int Slot=51;public int DeleteRequests;public bool RefuseDelete,KeepDeletedSlot,RefuseCommit;}
 sealed class NamWireFixture:IPodBulk {
  readonly Queue<byte[]> replies=new Queue<byte[]>();readonly List<byte> staged=new List<byte>();readonly Queue<byte[]> stream=new Queue<byte[]>();readonly NamFixtureDevice device;int unit,credit;public int DropCreditAt;public bool Occupied,StoredBlobTransaction;public byte[] Stored{get{return device.Stored;}}public int DataBytes,DataFrames;public int TransferSessions;public bool OneTransferOnly;
  public NamWireFixture(NamFixtureDevice shared=null){device=shared??new NamFixtureDevice();}
@@ -15,6 +15,8 @@ sealed class NamWireFixture:IPodBulk {
   if(envelope==null){Reply(f,Encoding.ASCII.GetBytes("P34Main"));return;}int op=Convert.ToInt32(envelope[100]);var targetMap=(Dictionary<long,object>)envelope[101];object payload=PodMsg.Map();int slot=targetMap.ContainsKey(112)?Convert.ToInt32(targetMap[112]):51;
   if(op==255&&++TransferSessions>1&&OneTransferOnly)throw new IOException("fixture: stale session reused");
   bool usedHere=slot==device.Slot&&(Stored!=null||Occupied);if(op==12)payload=PodMsg.Map(112,slot,113,usedHere&&Stored!=null?PodWireSession.Checksum(Stored):0,109,Encoding.UTF8.GetBytes(usedHere?device.Name:""),114,usedHere?1:0,115,3,123,false,124,false,125,0);
+  if(op==13&&device.RefuseCommit){Reply(f,ReplyBody(PodMsg.Map(102,envelope[102],103,1,104,PodMsg.Map())));return;}
+  if(op==15){device.DeleteRequests++;if(device.RefuseDelete){Reply(f,ReplyBody(PodMsg.Map(102,envelope[102],103,1,104,PodMsg.Map())));return;}if(slot==device.Slot&&!device.KeepDeletedSlot){device.Stored=null;device.Name="";}}
   if(op==11){if(Stored==null)throw new IOException("fixture empty");byte[] full=ReplyBody(PodMsg.Map(102,StoredBlobTransaction?1003:envelope[102],103,0,104,Stored));if(StoredBlobTransaction){full[2]=0;full[3]=0x28;}for(int at=256;at<full.Length;at+=256)stream.Enqueue(full.Skip(at).Take(256).ToArray());Reply(f,full.Take(256).ToArray());return;}
   if(op==254)staged.Clear();Reply(f,ReplyBody(PodMsg.Map(102,envelope[102],103,0,104,payload)));
  }
