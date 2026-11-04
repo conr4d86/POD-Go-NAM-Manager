@@ -30,8 +30,10 @@ Custom firmware must be installed and the library connected.
 
 You can close the app. Changing a NAM does not reinstall firmware.
 
-Optionally adjust the short name and output level first. The default is −5 dB.
-Replacing an occupied NAM requires the replacement checkbox and saves a backup.
+Optionally adjust the short name first. **Automatic** preserves the original
+NAM input at **0 dB**; uncheck it to adjust input manually. Output attenuation
+stays at **−5 dB**. Automatic does not analyze audio.
+An occupied NAM offers **Replace Model…**, with confirmation and a backup.
 Cabinet IRs are not overwritten.
 
 The value above **Model** shows its number and short name. Model 0 displays
@@ -48,3 +50,9 @@ It is disabled during transfers.
 **Load Official Firmware…** → select the original 2.50 → load your backup in
 the app → restore. Afterwards, load your backup in **POD Go Edit** to restore
 your previous presets.
+
+## Window size
+
+Version 0.8.0 supports maximizing and scales proportionally to available space.
+Very small windows offer scrolling to keep controls readable. Updating Manager
+does not require reinstalling the v8 custom firmware.

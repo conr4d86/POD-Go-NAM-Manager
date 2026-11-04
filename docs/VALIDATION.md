@@ -11,8 +11,9 @@ tests. It is not a claim that all hardware revisions have been tested.
 | v7 name experiment | User still saw a numeric Model value | Did not implement the requested display; superseded |
 | v8 names in the Model value | 37 ARM emulator cases using native IR-name getter and font metrics | Offline passed; screen on hardware pending |
 | Private test app 0.7.2 | 33 NAM + 27 UI/lease + 4 built-in + 6 bilingual/package checks | Offline passed; user trial pending |
-| Clean source ZIP rebuild | Fresh extraction compiles the app and recreates the exact v8 HXF from original | Offline passed |
-| Public download | Exact existing 0.7.2 executable, SHA-256 `8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0` | Bundled CF and engine; same app as the user trial |
+| Earlier 0.7.2 clean source ZIP rebuild | Fresh extraction compiles the app and recreates the exact v8 HXF from original | Offline passed |
+| Manager 0.8.0 | 34 NAM + 27 UI/lease + 6 bilingual/package + 3 layout/input checks | 70 offline checks passed; physical app trial pending |
+| Public download 0.8.0 | SHA-256 `7135a035254350f8d2d5a5eca26df2f3c347ac25dc3619bfcda174063b219940` | New manager, same v8 CF and installation engine |
 
 v8 preserves the v6 DSP code and built-in capture byte-for-byte. Only the ARM
 application UI changes relative to v6; the other 16 archive images, including
@@ -46,3 +47,19 @@ and the ordinary HXF validator checks all 17 images before installation.
 Results must be added only after they actually occur. No USB or SDK is opened
 by the offline tests. The public preview remains experimental pending these manual checks.
 
+
+## Manager 0.8.0 layout and input checks
+
+Native screenshots use a synthetic bank, in both languages. Rendered client
+sizes: 1500×900, 1348×730, 1264×680, 1008×680, 1920×1000, then back to
+1500×900. Scaling retains original measurements and fonts; its lower limit
+is 78%, with scrolling when necessary. Maximizing stays enabled.
+
+Automatic preserves the input at 0 dB. Manual input trim scales all 72
+raw-input coefficients (initial projection and 23 conditioning paths), keeps
+the −5 dB output trim, and survives send-time source revalidation in the
+fixture transport. The source NAM remains unchanged.
+
+The firmware binary is unchanged. Offline rendering and fixture transport do
+not establish physical audio timing, actual monitor DPI behavior, or USB
+transfer performance. No device or SDK was opened for this release work.

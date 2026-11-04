@@ -26,6 +26,16 @@ datos, sin reinstalar el firmware.
 
 [Instalación paso a paso](INICIO_RAPIDO.md) · [Acerca del proyecto](../README.es.md)
 
+### ¿Qué hace Automático?
+
+Conserva la entrada original del NAM a **0 dB**; no analiza audio. Desmárcalo
+para ajustar la entrada manualmente. La salida conserva la atenuación de **−5 dB**.
+El ajuste de entrada se aplica al enviar el NAM; no cambia el archivo original.
+
+### ¿Debo reinstalar el custom para usar la app 0.8.0?
+
+No, si ya tienes el custom v8. La 0.8.0 cambia el gestor y mantiene ese firmware.
+
 ## English
 
 ### How long does custom firmware installation take?
@@ -51,3 +61,13 @@ Upload** in the library; that operation only transfers the NAM and verifies
 the data, without reinstalling firmware.
 
 [Step-by-step installation](QUICKSTART.md) · [About the project](../README.md)
+
+### What does Automatic do?
+
+It preserves the original NAM input at **0 dB**, without analyzing audio.
+Uncheck it to adjust input manually. Output attenuation remains **−5 dB**.
+The input adjustment is applied when uploading, leaving the source file unchanged.
+
+### Does Manager 0.8.0 require reinstalling custom firmware?
+
+No, if v8 is already installed. Manager 0.8.0 keeps that firmware unchanged.

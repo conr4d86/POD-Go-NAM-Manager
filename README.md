@@ -10,7 +10,7 @@ recovery** and a **NAM Library**, with Spanish and English interfaces.
 
 The test status is listed in [validation](docs/VALIDATION.md).
 
-[Download for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.7.2/PODGoNamManager.exe)
+[Download for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.0/PODGoNamManager.exe)
 
 ## First installation
 
@@ -52,8 +52,17 @@ disconnect the computer: the POD Go processes the audio itself.
 
 Use the **short name** field for a Model value such as `53. FRIEDMAN HBE`. Existing
 captures uploaded with older Manager versions need uploading again to add a
-name. An occupied NAM requires **Replace this NAM**, with a verified backup.
-Cabinet IRs are protected. Output defaults to **−5 dB** and is adjustable. Names are shortened to fit the screen; the app previews the result.
+name. An occupied slot offers **Replace Model…**, followed by confirmation and a
+verified backup. Cabinet IRs are protected. **Automatic** preserves the NAM input
+at **0 dB**; uncheck it to adjust the input level. Output attenuation stays at
+**−5 dB**. Automatic does not analyze audio or estimate calibration.
+
+![NAM Library — English offline preview with synthetic bank](assets/screenshots/nam-en.png)
+
+Version **0.8.0** keeps its normal size on large screens, scales proportionally
+when space is limited, and supports maximizing. Very small windows use scrolling
+to keep controls readable. Updating Manager does **not** require reinstalling
+the included v8 custom firmware.
 
 ## Models, slots and cabinets
 
@@ -94,7 +103,7 @@ factory reset as part of this guide. See [recovery](docs/RECOVERY.md).
 - Audit without hardware: `powershell -ExecutionPolicy Bypass -File .\test-offline.ps1`
 - These are developer steps; the downloadable EXE already includes the CF.
 
-The download contains the existing 0.7.2 executable, with **CF NAM Conr4d and
+The download contains the 0.8.0 executable, with **CF NAM Conr4d and
 the firmware engine included**. The original official HXF is requested only
 when the user chooses to restore official firmware. Developer source builds
 use locally installed engine files; see the build guide.

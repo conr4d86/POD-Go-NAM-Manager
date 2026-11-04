@@ -11,7 +11,7 @@ Una vez instalado el custom, cambiar de NAM son tres acciones:
 **Abrir NAM → elegir Model → Enviar.**
 
 La app muestra qué posiciones están libres, cuáles contienen NAM y cuáles son
-IR de pantalla protegidos. Puedes poner un nombre corto, ajustar el nivel y
+IR de pantalla protegidos. Puedes poner un nombre corto, ajustar la entrada y
 sustituir un NAM con copia previa. No hay que reinstalar el firmware por cada NAM.
 El Cab/IR sigue siendo un bloque independiente.
 
@@ -41,7 +41,7 @@ After installing custom firmware, changing a NAM takes three actions:
 **Open NAM → choose Model → Upload.**
 
 Empty slots, existing NAMs and protected cabinet IRs are clearly labelled.
-Short names, adjustable output level and backed-up replacement are included.
+Short names, optional input trim and backed-up replacement are included.
 Changing a NAM does not reinstall firmware. The Cab/IR block remains independent.
 
 A short first-install guide explains the backup and official-firmware recovery.

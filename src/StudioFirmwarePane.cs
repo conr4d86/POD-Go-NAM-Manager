@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Drawing;
 using System.Diagnostics;
@@ -25,7 +25,7 @@ sealed class StudioFirmwarePane:UserControl {
  public bool OfficialMarked{get{return ((StudioButton)official).Marked;}}
  public bool BackupMarked{get{return ((StudioButton)backupButton).Marked;}}
  public StudioFirmwarePane(bool offlinePreview=false){
-  preview=offlinePreview;Dock=DockStyle.Fill;BackColor=bg;ForeColor=Color.Gainsboro;Font=new Font("Segoe UI",10);
+  preview=offlinePreview;AutoScaleMode=AutoScaleMode.None;Dock=DockStyle.Fill;BackColor=bg;ForeColor=Color.Gainsboro;Font=new Font("Segoe UI",10);
   records=Path.Combine(Path.GetTempPath(),"PODGoStudio-data",DateTime.Now.ToString("yyyyMMdd-HHmmss-fff"));logPath=Path.Combine(records,"firmware.log");if(!preview)Directory.CreateDirectory(records);
   var root=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(22),ColumnCount=1,RowCount=6};
   foreach(int height in new[]{64,154,194,80,10})root.RowStyles.Add(new RowStyle(SizeType.Absolute,height));root.RowStyles.Add(new RowStyle(SizeType.Percent,100));Controls.Add(root);
@@ -38,7 +38,7 @@ sealed class StudioFirmwarePane:UserControl {
   var selectors=new FlowLayoutPanel{Dock=DockStyle.Fill,WrapContents=false,Margin=Padding.Empty};Style(custom,"CF NAM Conr4d",175);Style(official,"Cargar Firmware Oficial…",240);selectors.Controls.AddRange(new Control[]{custom,official});fwRows.Controls.Add(selectors);
   fileName.Dock=DockStyle.Fill;fileName.Text="";fileName.AutoEllipsis=true;fwRows.Controls.Add(fileName);columns.Controls.Add(fw);
   var copies=Card("03   CARGA TU BACKUP");Style(backupButton,"Carga tu backup (.pgb)…",255);copies.Body.Controls.Add(backupButton);columns.Controls.Add(copies);
-  var action=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,RowCount=1,Padding=new Padding(0,16,0,0)};action.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute,292));action.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));Style(install,"Selecciona un firmware",278);install.Height=44;action.Controls.Add(install);
+  var action=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,RowCount=1,Padding=new Padding(0,16,0,0)};action.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute,292));action.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));Style(install,"Selecciona un firmware",278);((StudioButton)install).Rounded=true;install.Height=44;action.Controls.Add(install);
   var progressRows=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=1,RowCount=2,Padding=new Padding(12,0,0,0)};progressRows.RowStyles.Add(new RowStyle(SizeType.Absolute,22));progressRows.RowStyles.Add(new RowStyle(SizeType.Percent,100));progress.Dock=DockStyle.Fill;progress.Maximum=1000;progressRows.Controls.Add(progress);state.Dock=DockStyle.Fill;state.ForeColor=muted;state.Padding=new Padding(0,5,0,0);state.Text="Conectar y seleccionar archivos no inicia la instalación.";progressRows.Controls.Add(state);action.Controls.Add(progressRows);root.Controls.Add(action);
   root.Controls.Add(new Panel{Dock=DockStyle.Fill});
   var logs=Card("REGISTRO DE LA SESIÓN");journal.Dock=DockStyle.Fill;journal.Multiline=true;journal.ReadOnly=true;journal.ScrollBars=ScrollBars.Both;journal.WordWrap=false;journal.BorderStyle=BorderStyle.None;journal.BackColor=card;journal.ForeColor=Color.LightSteelBlue;journal.Font=new Font("Consolas",9);logs.Body.Controls.Add(journal);var openLog=new StudioButton();Style(openLog,"Abrir registros",142);openLog.Dock=DockStyle.Right;openLog.Height=25;logs.Heading.Controls.Add(openLog);openLog.Click+=(s,e)=>{if(Directory.Exists(records))Process.Start("explorer.exe",records);};root.Controls.Add(logs);
@@ -52,7 +52,7 @@ sealed class StudioFirmwarePane:UserControl {
   public readonly Panel Heading=new Panel(),Body=new Panel();
   public CardPanel(){Dock=DockStyle.Fill;ColumnCount=1;RowCount=2;Padding=new Padding(16,11,16,12);Margin=new Padding(0,0,0,12);BackColor=Color.FromArgb(22,31,42);RowStyles.Add(new RowStyle(SizeType.Absolute,44));RowStyles.Add(new RowStyle(SizeType.Percent,100));Heading.Dock=Body.Dock=DockStyle.Fill;Controls.Add(Heading);Controls.Add(Body);}
  }
- CardPanel Card(string title){var c=new CardPanel();var label=TextLabel(title,title.StartsWith("0")?14:9,accent);if(title.StartsWith("0"))label.Font=new Font("Segoe UI",14,FontStyle.Bold);c.Heading.Controls.Add(label);return c;}
+ CardPanel Card(string title){var c=new CardPanel();var label=title.StartsWith("0")?new StudioStepLabel{Dock=DockStyle.Fill,Text=title,ForeColor=accent}:TextLabel(title,9,accent);if(title.StartsWith("0"))label.Font=new Font("Segoe UI",14,FontStyle.Bold);c.Heading.Controls.Add(label);return c;}
  Label TextLabel(string text,int size,Color color){return new Label{Dock=DockStyle.Fill,Text=text,ForeColor=color,Font=new Font("Segoe UI",size,size>20?FontStyle.Bold:FontStyle.Regular)};}
  void Style(Button b,string text,int width){b.Text=text;b.Width=width;b.Height=34;b.FlatStyle=FlatStyle.Flat;b.FlatAppearance.BorderColor=Color.FromArgb(55,73,88);b.BackColor=Color.FromArgb(35,48,65);b.ForeColor=Color.Gainsboro;b.Cursor=Cursors.Hand;b.UseVisualStyleBackColor=false;}
  void Ui(Action action){try{if(IsDisposed)return;if(InvokeRequired)BeginInvoke(action);else action();}catch(InvalidOperationException){}}
@@ -81,9 +81,9 @@ sealed class StudioFirmwarePane:UserControl {
   if(!ReferenceEquals(selected,firmware)||selectedBackup!=backup)throw new InvalidOperationException("La selección ha cambiado. Revísala antes de instalar.");
   ClearNotice();progress.Value=0;state.Text="Preparando la transferencia…";dispatch(selected,selectedBackup);
  }
- void UpdateUi(){if(IsDisposed)return;ReleaseLeaseIfClosed();bool active=engine!=null&&engine.Running,ready=engine!=null&&engine.TargetReady;bool busy=IsBusy||releasing,validFirmware=firmware!=null&&!firmware.IsWithdrawn,hasBackup=File.Exists(backup);connect.Enabled=!preview&&!busy&&!HasSession&&lease==null;disconnect.Enabled=!preview&&!busy&&HasSession;refresh.Enabled=identify.Enabled=!preview&&!busy&&active;if(ready)identify.Enabled=false;custom.Enabled=official.Enabled=backupButton.Enabled=!busy;device.Text=preview?"Vista previa local · USB cerrado":(ready?"✓ ":"")+ConnectionText;device.ForeColor=ready?accent:Color.Gainsboro;
+ void UpdateUi(){if(IsDisposed)return;ReleaseLeaseIfClosed();bool active=engine!=null&&engine.Running,ready=engine!=null&&engine.TargetReady;bool busy=IsBusy||releasing,validFirmware=firmware!=null&&!firmware.IsWithdrawn,hasBackup=File.Exists(backup);connect.Enabled=!preview&&!busy&&!HasSession&&lease==null;disconnect.Enabled=!preview&&!busy&&HasSession;refresh.Enabled=identify.Enabled=!preview&&!busy&&active;identify.Visible=active&&!ready&&engine.RecoveryDetected; if(ready)identify.Enabled=false;custom.Enabled=official.Enabled=backupButton.Enabled=!busy;device.Text=preview?"Vista previa local · USB cerrado":(ready?"✓ ":"")+ConnectionText;device.ForeColor=ready?accent:Color.Gainsboro;
   ((StudioButton)connect).Marked=ready;((StudioButton)custom).Marked=validFirmware&&firmware.Hash==PortableRuntime.CustomHash;((StudioButton)official).Marked=validFirmware&&firmware.IsOfficial;((StudioButton)backupButton).Marked=hasBackup;
-  install.Enabled=!preview&&!busy&&ready&&validFirmware&&hasBackup;install.Text=firmware==null?"Selecciona un firmware":firmware.IsOfficial?"Restaurar oficial 2.50":"Instalar CF NAM";install.BackColor=install.Enabled?accent:Color.FromArgb(35,48,65);install.ForeColor=install.Enabled?bg:muted;
+  install.Enabled=!preview&&!busy&&ready&&validFirmware&&hasBackup;((StudioButton)install).Glow=install.Enabled;install.Invalidate();install.Text=firmware==null?"Selecciona un firmware":firmware.IsOfficial?"Restaurar oficial 2.50":"Instalar CF NAM";install.BackColor=install.Enabled?accent:Color.FromArgb(35,48,65);install.ForeColor=install.Enabled?bg:muted;
   if(noticeMessage.Length>0){state.Text=noticeMessage;state.ForeColor=noticeColor;}
   else if(engine==null||!engine.Busy){state.ForeColor=install.Enabled?accent:muted;
    if(releasing)state.Text="Cerrando comunicación…";

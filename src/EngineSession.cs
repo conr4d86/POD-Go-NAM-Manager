@@ -61,6 +61,7 @@ sealed class EngineSession {
   var request=new Dictionary<string,object>{{"setDeviceIdentity_deviceIndexKey",boot[0].Index},{"setDeviceIdentity_currentDeviceProductIDKey",boot[0].ID},{"setDeviceIdentity_newDeviceProductIDKey",FirmwareFile.Product},{"setDeviceIdentity_newDeviceFriendlyNameKey","POD GO"}};
   log("Identificar recuperación POD Go: "+Call("setDictionaryParamValue","stepsSystemState","setDeviceIdentity",request));Thread.Sleep(1000);RefreshDevices();
  });}
+ public bool RecoveryDetected{get{lock(sync)return ids.Any(IsPodRecoveryId);}}
  public static bool IsPodRecoveryId(int id){return ((uint)id>>16)==0x21&&id!=FirmwareFile.Product&&id!=2162696;}
  public void Install(FirmwareFile file,string backup){
   if(!TargetReady||Busy)throw new InvalidOperationException("Conexión POD Go no verificada o motor ocupado");

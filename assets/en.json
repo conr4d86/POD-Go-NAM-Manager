@@ -3,7 +3,7 @@
   "Biblioteca de modelos · carga por USB": "Model library · USB transfer",
   "Firmware / recuperar": "Firmware / recovery",
   "Firmware y recuperación": "Firmware and recovery",
-  "Elige una captura, su nivel y la posición donde quieres guardarla.": "Choose a capture, its output level and where to store it.",
+  "Elige una captura, su nivel y la posición donde quieres guardarla.": "Choose a capture, its input level and where to store it.",
   "COMUNICACIÓN": "CONNECTION",
   "Idioma": "Language",
   "01   CONECTAR LA POD GO": "01   CONNECT YOUR POD GO",
@@ -269,5 +269,13 @@
   "Actualizador base distinto": "Base updater differs",
   "Firmware reconstruido distinto del objetivo": "Rebuilt firmware differs from its target",
   "Parche comprimido truncado": "Truncated compressed patch",
-  "El parche excede su limite": "The patch exceeds its limit"
+  "El parche excede su limite": "The patch exceeds its limit",
+  "Nivel de entrada (dB)": "Input level (dB)",
+  "Entrada": "Input",
+  "Automático": "Automatic",
+  "Automático conserva la entrada original del NAM (0 dB). No analiza audio.": "Automatic preserves the original NAM input (0 dB). It does not analyse audio.",
+  "Sustituir Model ": "Replace Model ",
+  "Sustituir NAM": "Replace NAM",
+  "Se sustituirá el NAM de esta posición y se conservará una copia previa. Los presets que la usan reproducirán el nuevo NAM.": "The NAM in this slot will be replaced and a backup kept. Presets using this slot will play the new NAM.",
+  "Salida": "Output"
 }

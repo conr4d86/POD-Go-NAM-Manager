@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 using System.Web.Script.Serialization;
 
 sealed class NamCapture {
- public string Source,Name,Hash;public double OutputDb; public byte[] Wave;
+ public string Source,Name,Hash;public double OutputDb,InputDb; public byte[] Wave;
  public static readonly int[] Kernels=Enumerable.Repeat(6,14).Concat(new[]{15,15}).Concat(Enumerable.Repeat(6,7)).ToArray();
  static readonly int[] Dilations=new[]{1,3,7,17,41,101,239,1,3,7,17,41,101,239,1,13,1,3,7,17,41,101,239};
  public static string Sha(byte[] b){using(var h=SHA256.Create())return BitConverter.ToString(h.ComputeHash(b)).Replace("-","").ToLowerInvariant();}
@@ -20,8 +20,9 @@ sealed class NamCapture {
  static void Need(bool ok,string why){if(!ok)throw new InvalidDataException("NAM no compatible: "+why);}
  static void EqualArray(Dictionary<string,object> d,string key,int[] expected){Need(d.ContainsKey(key)&&Arr(d[key]).Select(x=>(int)Number(x)).SequenceEqual(expected),key);}
  static float F(double v){return BitConverter.ToSingle(BitConverter.GetBytes((float)v),0);}
- public static NamCapture Read(string path,double outputDb=0){
+ public static NamCapture Read(string path,double outputDb=0,double inputDb=0){
   Need(!double.IsNaN(outputDb)&&!double.IsInfinity(outputDb)&&outputDb>=-60&&outputDb<=12,"nivel de salida fuera de rango");
+  Need(!double.IsNaN(inputDb)&&!double.IsInfinity(inputDb)&&inputDb>=-60&&inputDb<=12,"nivel de entrada fuera de rango");
   var bytes=File.ReadAllBytes(path);Need(bytes.Length<=8*1024*1024,"archivo demasiado grande");
   var json=new JavaScriptSerializer{MaxJsonLength=8*1024*1024};var root=Dict(json.DeserializeObject(System.Text.Encoding.UTF8.GetString(bytes).TrimStart('\ufeff')));
   object[] models=Convert.ToString(root["architecture"])=="SlimmableContainer"?Arr(Dict(root["config"])["submodels"]).Select(s=>Dict(s)["model"]).ToArray():new object[]{root};
@@ -39,7 +40,11 @@ sealed class NamCapture {
   var w=Arr(model["weights"]).Select(Number).ToArray();Need(w.Length==1871,"se requieren 1871 pesos");
   // The last serialized scalar is the output head scale. Keep all network
   // weights, its input calibration and the original .nam unchanged.
-  w[1870]*=Math.Pow(10,outputDb/20);var wave=Encode(w);return new NamCapture{Source=Path.GetFullPath(path),Name=Path.GetFileNameWithoutExtension(path),Hash=Sha(bytes),Wave=wave,OutputDb=outputDb};
+  // Raw guitar enters both the initial 1x1 input projection and every layer's
+  // conditioning projection. Scale all 72 input coefficients; scaling only
+  // the first three would leave an untrimmed conditioning path.
+  if(inputDb!=0){double gain=Math.Pow(10,inputDb/20);for(int i=0;i<3;i++)w[i]*=gain;int offset=3;foreach(int kernel in Kernels){int mixin=offset+9*kernel+3;for(int i=0;i<3;i++)w[mixin+i]*=gain;offset+=9*kernel+18;}}
+  w[1870]*=Math.Pow(10,outputDb/20);var wave=Encode(w);return new NamCapture{Source=Path.GetFullPath(path),Name=Path.GetFileNameWithoutExtension(path),Hash=Sha(bytes),Wave=wave,OutputDb=outputDb,InputDb=inputDb};
  }
  static List<double[]> Blocks(double[] w,out double[] head){int o=3;var blocks=new List<double[]>();foreach(int k in Kernels){int conv=o;o+=9*k;int bias=o;o+=3;int mixin=o;o+=3;int w1=o;o+=9;int b1=o;o+=3;var b=new List<double>();for(int i=0;i<3;i++){b.Add(w[bias+i]);b.Add(w[mixin+i]);}for(int t=0;t<k;t++)for(int j=0;j<3;j++)for(int i=0;i<3;i++)b.Add(w[conv+(i*3+j)*k+t]);for(int i=0;i<3;i++){b.Add(w[b1+i]);for(int j=0;j<3;j++)b.Add(w[w1+i*3+j]);}blocks.Add(b.ToArray());}head=new[]{w[o+48]}.Concat(Enumerable.Range(0,16).SelectMany(t=>Enumerable.Range(0,3).Select(j=>w[o+j*16+t]))).ToArray();return blocks;}
  public static byte[] Encode(double[] w){

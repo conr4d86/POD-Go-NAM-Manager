@@ -10,7 +10,7 @@ recuperación** y **Biblioteca NAM**, con interfaz en español e inglés.
 
 El estado de las comprobaciones está en [validación](docs/VALIDATION.md).
 
-[Descargar para Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.7.2/PODGoNamManager.exe)
+[Descargar para Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.0/PODGoNamManager.exe)
 
 ## Primera instalación
 
@@ -52,9 +52,18 @@ desconectar el ordenador: el audio se procesa dentro de la POD Go.
 
 El campo **Nombre corto** permite mostrar, por ejemplo, `53. FRIEDMAN HBE`.
 Para añadir el nombre a un NAM cargado con una versión anterior, vuelve a
-enviarlo. Para sustituir un NAM ocupado, marca **Sustituir este NAM**; la app
-conserva una copia previa. Los IR de pantalla están protegidos.
-La salida inicial es **−5 dB**, ajustable. El nombre se acorta si hace falta para caber; la app muestra el resultado previsto.
+enviarlo. En una posición ocupada aparece **Sustituir Model…**; se pide
+confirmación y se conserva una copia previa. Los IR de pantalla están protegidos.
+**Automático** conserva la entrada original del NAM a **0 dB**. Desmárcalo para
+ajustar el nivel de entrada. La atenuación de salida se mantiene en **−5 dB**.
+Automático no analiza audio ni calcula una calibración.
+
+![Biblioteca NAM — vista local con banco sintético](assets/screenshots/nam-es.png)
+
+La **0.8.0** mantiene el tamaño normal en pantallas grandes, reduce las
+proporciones cuando falta espacio y permite maximizar. En ventanas muy pequeñas
+se puede desplazar el contenido para mantener los controles legibles. Actualizar
+el gestor **no requiere reinstalar** el custom v8 incluido.
 
 ## Modelos, posiciones y pantallas
 
@@ -98,7 +107,7 @@ revisión `2e801641df4a083c29ee13c5718c047d336ef692`.
 Código GPL-3.0-or-later: [LICENSE](LICENSE) y [NOTICE](NOTICE).
 El NAM incluido tiene su propio [aviso](models/NOTICE.txt).
 
-La descarga contiene el **mismo ejecutable 0.7.2**, con el CF NAM Conr4d y
+La descarga contiene el **ejecutable 0.8.0**, con el CF NAM Conr4d y
 el motor de instalación incluidos. El archivo oficial se pide únicamente
 si eliges restaurar el firmware original.
 Compilación y pruebas: [BUILDING](docs/BUILDING.md).

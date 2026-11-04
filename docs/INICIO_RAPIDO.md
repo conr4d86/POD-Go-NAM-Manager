@@ -30,8 +30,10 @@ Necesitas el custom instalado y la biblioteca conectada.
 
 Ya puedes cerrar la app. No se reinstala el firmware para cambiar de NAM.
 
-Opcional: cambia el nombre corto y el nivel antes de enviar. Por defecto: −5 dB.
-Si actualizas una posición ocupada, marca la casilla de sustitución; se guarda
+Opcional: cambia el nombre corto antes de enviar. **Automático** conserva la
+entrada original a **0 dB**; desmárcalo para ajustar la entrada manualmente. La
+salida mantiene su atenuación de **−5 dB**. Automático no analiza audio.
+Si actualizas una posición ocupada, confirma **Sustituir Model…**; se guarda
 una copia previa. Los IR de pantalla no se sustituyen.
 
 El valor encima de **Model** muestra número y nombre corto. Model 0 muestra
@@ -48,3 +50,9 @@ Durante una transferencia permanece deshabilitado.
 **Cargar Firmware Oficial…** → seleccionar el original 2.50 → cargar el backup
 en la app → restaurar. Después, carga tu backup en **POD Go Edit** para recuperar
 los presets anteriores.
+
+## Tamaño de la ventana
+
+La 0.8.0 permite maximizar y se adapta proporcionalmente al espacio disponible.
+En ventanas muy pequeñas ofrece desplazamiento para conservar la legibilidad.
+Actualizar el gestor no requiere reinstalar el custom v8.

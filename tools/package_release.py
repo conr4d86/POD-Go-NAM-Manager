@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,re,zipfile,shutil
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.7.2'
+VERSION='0.8.0'
 TOP={'.gitignore','.gitattributes','LICENSE','NOTICE','README.md','README.es.md',
      'requirements-dev.txt','build-windows.ps1','test-offline.ps1'}
 DIRS={'.github','assets','docs','firmware','models','src','tests','third_party','tools'}
@@ -30,7 +30,7 @@ def source_files():
 def archive(path,files):
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
         for name,data in sorted(files):
-            info=zipfile.ZipInfo(name,date_time=(2026,11,3,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED
+            info=zipfile.ZipInfo(name,date_time=(2026,11,4,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED
             z.writestr(info,data,compresslevel=9)
 
 def main():
@@ -40,7 +40,8 @@ def main():
     source=dest/f'PODGoNAMManager-{VERSION}-source.zip'
     archive(source,files+[('SOURCE-SHA256.json',inventory)])
     exe=(ROOT/'build/app/PODGoNamManager.exe').read_bytes()
-    assert SHA(exe)=='8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0','Publish the exact existing app'
+    assert f'Version="{VERSION}"' in (ROOT/'src/StudioApp.cs').read_text(encoding='utf-8-sig'),'Source version mismatch'
+    assert VERSION in exe.decode('utf-16-le',errors='ignore'),'Executable version mismatch'
     standalone=dest/'PODGoNamManager.exe';standalone.write_bytes(exe)
     assert exe[:2]==b'MZ'
     catalogue=json.loads((ROOT/'build/app/known-models.json').read_text(encoding='utf-8-sig'))
@@ -55,7 +56,7 @@ def main():
     binary=dest/f'PODGoNAMManager-{VERSION}-windows.zip';archive(binary,runtime)
     report=dict(version=VERSION,status='PREPARED_FOR_RELEASE',source_files=len(files),
       artifacts=[dict(file=p.name,bytes=p.stat().st_size,sha256=SHA(p.read_bytes())) for p in (standalone,source,binary)],
-      public_executable_sha256=SHA(exe),custom_firmware_bundled=True,original_official_hxf_bundled=False,native_engine_bundled=True,exact_existing_executable=True,
+      public_executable_sha256=SHA(exe),custom_firmware_bundled=True,original_official_hxf_bundled=False,native_engine_bundled=True,custom_firmware_unchanged_from_0_7_2=True,
       hardware_signoff_pending=True)
     (dest/'RELEASE-MANIFEST.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     (dest/'SHA256SUMS.txt').write_text(''.join(f"{a['sha256']}  {a['file']}\n" for a in report['artifacts']),encoding='utf-8')

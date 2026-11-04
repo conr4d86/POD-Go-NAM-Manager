@@ -1,6 +1,6 @@
 # Building from source — developers only
 
-The end-user download is the existing **PODGoNamManager.exe 0.7.2**, with the
+The end-user download is the **PODGoNamManager.exe 0.8.0**, with the
 CF NAM Conr4d and installation engine already included. **Installing CF NAM
 does not ask for an original firmware file.** Only restoring official firmware
 requires selecting an official POD Go 2.50 HXF.
@@ -36,11 +36,21 @@ start the SDK or open USB. The optional workflow example remains in
 python tools/package_release.py
 ```
 
-Packaging publishes the exact existing 0.7.2 EXE, whose SHA-256 is
-`8217facfbed83f162eff1cff2b37171c7d8fa5956074f6b37409011aa9f201b0`.
-The source ZIP contains the same application logic, with test-only paths made
-portable. Runtime ZIPs, backups, local logs and credentials are not put into
-the source repository. The downloadable EXE contains its CF and engine.
+Packaging reads the newly built 0.8.0 executable from `build/app`, checks the
+version, and creates the EXE, Windows ZIP, source ZIP, manifest and SHA-256 list.
+Runtime ZIPs, backups, local logs and credentials are excluded from the source
+repository. The downloadable EXE contains its CF and engine.
+
+Offline regression and rendering commands (no USB or SDK):
+
+```powershell
+build/app/PODGoNamManager.exe --layout-self-test . build/layout-checks
+build/app/PODGoNamManager.exe --release-self-test . build/release-checks
+```
+
+The layout suite renders both sections and languages at several window sizes,
+checks restoration to full size, and checks input gain encoding. File-system
+protection can block replacing screenshots; use a fresh output directory.
 
 The packaging command creates local artifacts only; GitHub publication is a
 separate operation. Physical validation of the v8 display remains separate
