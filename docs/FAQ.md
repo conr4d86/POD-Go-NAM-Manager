@@ -49,9 +49,20 @@ Para editar volumen, este PC debe conservar los niveles del NAM. Si aparece
 que no se conocen, abre su archivo original y actualiza la posición. Un guion
 en la columna Volumen significa que el nivel no se conoce, no que sea 0 dB.
 
-### ¿Debo reinstalar el custom para usar la app 0.8.5?
+### ¿Qué hago si aparece «Respuesta incompleta» al editar volumen?
 
-No, si ya tienes el custom v8. La 0.8.5 cambia el gestor y mantiene ese firmware.
+Actualiza a **0.8.6**. Corrige la recepción de respuestas USB divididas en varias
+partes. En 0.8.5 el error podía aparecer al refrescar la lista, después de guardar
+y verificar el NAM. Cuando la operación haya terminado, cierra la app anterior,
+abre la nueva y vuelve a conectar para consultar el banco.
+
+La versión nueva conserva el nivel en el catálogo en cuanto confirma la lectura
+completa del NAM; si después falla el refresco, el mensaje lo explica. No hace
+falta reinstalar el custom.
+
+### ¿Debo reinstalar el custom para usar la app 0.8.6?
+
+No, si ya tienes el custom v8. La 0.8.6 cambia el gestor y mantiene ese firmware.
 
 ## English
 
@@ -101,6 +112,17 @@ Volume editing needs the NAM levels saved on this PC. If these are unknown,
 open the original NAM and update the slot. A dash in the Volume column means
 the level is unknown, not 0 dB.
 
-### Does Manager 0.8.5 require reinstalling custom firmware?
+### What if I see “Incomplete response” when editing volume?
 
-No, if v8 is already installed. Manager 0.8.5 keeps that firmware unchanged.
+Update to **0.8.6**. It fixes reception of USB replies split across multiple
+frames. In 0.8.5 the error could occur during a directory refresh, after the NAM
+had already been saved and verified. Once the operation has ended, close the
+older app, open the new one and reconnect to read the bank.
+
+The new version retains the level in the catalogue as soon as full NAM readback
+is verified. If a later refresh fails, the message explains that. No firmware
+reinstall is required.
+
+### Does Manager 0.8.6 require reinstalling custom firmware?
+
+No, if v8 is already installed. Manager 0.8.6 keeps that firmware unchanged.

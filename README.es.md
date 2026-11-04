@@ -10,10 +10,14 @@ recuperación** y **Biblioteca NAM**, con interfaz en español e inglés.
 
 El estado de las comprobaciones está en [validación](docs/VALIDATION.md).
 
-[Descargar para Windows — 0.8.5](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.5/PODGoNamManager.exe)
+[Descargar para Windows — 0.8.6](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.6/PODGoNamManager.exe)
 
 ¿Ya tienes el custom v8? Descarga el nuevo EXE y usa **Biblioteca NAM**.
 Esta actualización no requiere reinstalar el firmware.
+
+La **0.8.6 corrige el error intermitente «Respuesta incompleta»** al editar
+volumen o actualizar la biblioteca. Conserva los cambios de volumen verificados
+aunque falle un refresco posterior. Consulta las [novedades](docs/RELEASE_NOTES_0.8.6.md).
 
 ## Primera instalación
 
@@ -72,7 +76,7 @@ original y vuelve a cargarlo.
 
 ![Biblioteca NAM — vista local con banco sintético](assets/screenshots/nam-es.png)
 
-La **0.8.5** mantiene el tamaño normal en pantallas grandes, reduce las
+La **0.8.6** mantiene el tamaño normal en pantallas grandes, reduce las
 proporciones cuando falta espacio y permite maximizar. En ventanas muy pequeñas
 se puede desplazar el contenido para mantener los controles legibles. Actualizar
 el gestor **no requiere reinstalar** el custom v8 incluido.
@@ -119,7 +123,7 @@ revisión `2e801641df4a083c29ee13c5718c047d336ef692`.
 Código GPL-3.0-or-later: [LICENSE](LICENSE) y [NOTICE](NOTICE).
 El NAM incluido tiene su propio [aviso](models/NOTICE.txt).
 
-La descarga contiene el **ejecutable 0.8.5**, con el CF NAM Conr4d y
+La descarga contiene el **ejecutable 0.8.6**, con el CF NAM Conr4d y
 el motor de instalación incluidos. El archivo oficial se pide únicamente
 si eliges restaurar el firmware original.
 Compilación y pruebas: [BUILDING](docs/BUILDING.md).

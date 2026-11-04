@@ -1,6 +1,6 @@
 # Building from source — developers only
 
-The end-user download is the **PODGoNamManager.exe 0.8.5**, with the
+The end-user download is the **PODGoNamManager.exe 0.8.6**, with the
 CF NAM Conr4d and installation engine already included. **Installing CF NAM
 does not ask for an original firmware file.** Only restoring official firmware
 requires selecting an official POD Go 2.50 HXF.
@@ -36,7 +36,7 @@ start the SDK or open USB. The optional workflow example remains in
 python tools/package_release.py
 ```
 
-Packaging reads the newly built 0.8.5 executable from `build/app`, checks the
+Packaging reads the newly built 0.8.6 executable from `build/app`, checks the
 version, and creates the EXE, Windows ZIP, source ZIP, manifest and SHA-256 list.
 Runtime ZIPs, backups, local logs and credentials are excluded from the source
 repository. The downloadable EXE contains its CF and engine.

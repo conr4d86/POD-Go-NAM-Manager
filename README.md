@@ -10,10 +10,14 @@ recovery** and a **NAM Library**, with Spanish and English interfaces.
 
 The test status is listed in [validation](docs/VALIDATION.md).
 
-[Download for Windows — 0.8.5](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.5/PODGoNamManager.exe)
+[Download for Windows — 0.8.6](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.6/PODGoNamManager.exe)
 
 Already using custom v8? Download the new EXE and use **NAM Library**.
 There is no firmware reinstall for this update.
+
+**0.8.6 fixes intermittent “Incomplete response” errors** when editing NAM
+volume or refreshing the library. Verified volume changes are retained even
+if a later refresh fails. See the [release notes](docs/RELEASE_NOTES_0.8.6.md).
 
 ## First installation
 
@@ -71,7 +75,7 @@ on this PC; if unavailable, open the original NAM and upload it again.
 
 ![NAM Library — English offline preview with synthetic bank](assets/screenshots/nam-en.png)
 
-Version **0.8.5** keeps its normal size on large screens, scales proportionally
+Version **0.8.6** keeps its normal size on large screens, scales proportionally
 when space is limited, and supports maximizing. Very small windows use scrolling
 to keep controls readable. Updating Manager does **not** require reinstalling
 the included v8 custom firmware.
@@ -115,7 +119,7 @@ factory reset as part of this guide. See [recovery](docs/RECOVERY.md).
 - Audit without hardware: `powershell -ExecutionPolicy Bypass -File .\test-offline.ps1`
 - These are developer steps; the downloadable EXE already includes the CF.
 
-The download contains the 0.8.5 executable, with **CF NAM Conr4d and
+The download contains the 0.8.6 executable, with **CF NAM Conr4d and
 the firmware engine included**. The original official HXF is requested only
 when the user chooses to restore official firmware. Developer source builds
 use locally installed engine files; see the build guide.

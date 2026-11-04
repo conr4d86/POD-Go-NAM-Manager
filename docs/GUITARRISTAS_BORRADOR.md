@@ -2,7 +2,7 @@
 
 ## NAM A2 Lite en POD Go, con gestor en español e inglés
 
-**POD Go NAM Manager 0.8.5** es una app para instalar el custom
+**POD Go NAM Manager 0.8.6** es una app para instalar el custom
 firmware y cargar capturas NAM A2 Lite por USB. El sonido se procesa en la
 propia pedalera; después no hace falta dejar el PC conectado.
 
@@ -11,7 +11,7 @@ Primero haz un backup con **POD Go Edit** y conserva el `.pgb`. Abre la app:
 **Conectar POD Go → CF NAM Conr4d y cargar backup → Instalar CF NAM.**
 
 El custom viene incluido en el EXE. Espera al resultado final sin desconectar
-la pedalera. Si ya tienes el custom v8, no necesitas reinstalarlo para usar 0.8.5.
+la pedalera. Si ya tienes el custom v8, no necesitas reinstalarlo para usar 0.8.6.
 
 Después, cambiar de NAM son tres acciones:
 
@@ -33,7 +33,7 @@ IR guardados en la POD Go e incluidos en el backup. Un usuario ha comunicado
 **5–10 minutos**; es orientativo y puede tardar más. Espera al resultado final
 sin desconectar la pedalera. Esta espera no se repite al cambiar un NAM.
 
-Descarga: [POD Go NAM Manager 0.8.5](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/tag/v0.8.5)
+Descarga: [POD Go NAM Manager 0.8.6](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/tag/v0.8.6)
 
 El detalle de las pruebas está en [validación](VALIDATION.md). Las nuevas
 operaciones de borrar y editar volumen tienen pruebas locales con dispositivo
@@ -49,7 +49,7 @@ over USB, with Spanish and English interfaces.
 
 First, make a **POD Go Edit** backup. In Manager use **Connect POD Go → CF NAM
 Conr4d and load backup → Install NAM firmware**. The custom is bundled. Existing
-v8 users do not need to reflash for 0.8.5.
+v8 users do not need to reflash for 0.8.6.
 
 After that, changing a NAM takes three actions:
 

@@ -66,6 +66,6 @@ your previous presets.
 
 ## Window size
 
-Version 0.8.5 supports maximizing and scales proportionally to available space.
+Version 0.8.6 supports maximizing and scales proportionally to available space.
 Very small windows offer scrolling to keep controls readable. Updating Manager
 does not require reinstalling the v8 custom firmware.

@@ -16,7 +16,10 @@ tests. It is not a claim that all hardware revisions have been tested.
 | Public download 0.8.0 | SHA-256 `7135a035254350f8d2d5a5eca26df2f3c347ac25dc3619bfcda174063b219940` | New manager, same v8 CF and installation engine |
 | Manager 0.8.5 | 24 update + 34 NAM + 27 UI/lease + 3 layout + 6 bilingual/package checks | 94 offline checks passed |
 | Download 0.8.5 | SHA-256 `7d74ec49dcda068b00e9273024ab426557eafcfcc23e66fc7e5c2c62cc95c15e` | Same v8 CF; new volume normalizer and managed NAM maintenance |
-| New delete and volume-edit operations | Protocol fixtures, backups, readback and failure cases | Offline passed; physical USB test pending |
+| Initial 0.8.5 delete and volume-edit checks | Protocol fixtures, backups, readback and failure cases | Offline evidence before the user trial recorded below |
+| 0.8.5 volume editing on the pedalboard | User report and saved operation/readback records | Successful edits observed; an intermittent final-directory refresh failure was captured |
+| Manager 0.8.6 | 34 update + 34 NAM + 27 UI/lease + 3 layout + 6 bilingual/package checks | 104 offline checks passed; physical retest of the fix pending |
+| Download 0.8.6 | SHA-256 `1d5a56380023b7c29ffe91cfbbbb6b1248d0b3e7491faaccc4e7211d6468f200` | Same v8 CF; fragmented-reply fix |
 
 v8 preserves the v6 DSP code and built-in capture byte-for-byte. Only the ARM
 application UI changes relative to v6; the other 16 archive images, including
@@ -46,7 +49,7 @@ and the ordinary HXF validator checks all 17 images before installation.
 2. Upload a named capture through the library; select it, verify its displayed
    short name and audio, and confirm it persists after a normal restart.
 3. Finish the install/restore flow and both interface languages on the same device.
-4. Exercise 0.8.5 volume editing and deletion on the pedalboard, including the
+4. Exercise 0.8.6 volume editing and deletion on the pedalboard, including the
    resulting slot inventory and audio after selecting the Model again.
 
 Results must be added only after they actually occur. No USB or SDK is opened
@@ -94,4 +97,23 @@ Both languages, the empty capture prompt and the single volume control were
 checked locally. Screenshots in `assets/screenshots` are native offline renders
 with a synthetic bank. The final EXE audit validates the unchanged v8 firmware's
 17 images, the included engine and the exclusion of the original official HXF.
-The new USB operations have not yet been verified on the physical pedalboard.
+The subsequent physical 0.8.5 volume-edit trial and the 0.8.6 fix are recorded below.
+
+## Manager 0.8.6 fragmented-response fix
+
+A saved 0.8.5 trace identifies the reported failure: a 36-byte directory reply
+arrived in two frames, with 16 and 20 payload bytes. The old code decoded the
+first part as a complete response. The error occurred in the final directory
+refresh, after the edited NAM had passed complete readback verification.
+
+0.8.6 assembles replies to their declared TLV length before parsing them. The
+same handling covers transfer-open, transfer-close, commit and delete replies.
+It checks the peer channel and transaction identity, retaining the existing
+stored-IR blob transaction behavior. Length limits and write guards remain.
+
+Ten added checks cover the exact captured metadata response, header-only first
+fragments, fragmented control acknowledgements, mismatched transactions, rejected
+commits, volume editing with fragmented metadata throughout, and retention of
+verified volume data when the final directory refresh fails. All 104 offline
+checks pass. The final EXE audit validates the unchanged v8 CF and its 17 images.
+No USB or SDK was opened for the fix; its physical retest remains pending.

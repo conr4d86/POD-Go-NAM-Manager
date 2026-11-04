@@ -66,6 +66,6 @@ los presets anteriores.
 
 ## Tamaño de la ventana
 
-La 0.8.5 permite maximizar y se adapta proporcionalmente al espacio disponible.
+La 0.8.6 permite maximizar y se adapta proporcionalmente al espacio disponible.
 En ventanas muy pequeñas ofrece desplazamiento para conservar la legibilidad.
 Actualizar el gestor no requiere reinstalar el custom v8.
