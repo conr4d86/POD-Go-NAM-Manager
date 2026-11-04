@@ -18,6 +18,11 @@ El Cab/IR sigue siendo un bloque independiente.
 Para la primera instalación hay una guía breve, con backup previo mediante
 POD Go Edit. También se puede volver al firmware oficial y cargar el backup.
 
+Según los reportes de usuarios, la espera de instalación puede aumentar con los
+IR guardados en la POD Go e incluidos en el backup. Un usuario ha comunicado
+**5–10 minutos**; es orientativo y puede tardar más. Espera al resultado final
+sin desconectar la pedalera. Esta espera no se repite al cambiar un NAM.
+
 Repositorio previsto: [POD-Go-NAM-Manager](https://github.com/conr4d86/POD-Go-NAM-Manager)
 
 **Antes de publicar:** terminar la prueba física de v8 y de la app bilingüe,
@@ -40,4 +45,8 @@ Short names, adjustable output level and backed-up replacement are included.
 Changing a NAM does not reinstall firmware. The Cab/IR block remains independent.
 
 A short first-install guide explains the backup and official-firmware recovery.
+User reports suggest that installation can take longer with more IRs stored on
+the POD Go and included in its backup. One user reported **5–10 minutes**;
+this is approximate and may take longer. Keep the pedalboard connected until
+the final result. Changing a NAM does not repeat the firmware installation.
 The final hardware test and public release are still pending.

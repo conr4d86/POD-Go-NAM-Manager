@@ -28,7 +28,12 @@ Wait for the final result and normal startup before checking audio. This is a
 full firmware transfer and takes substantially longer than uploading a NAM.
 There is no automatic installation when opening the app.
 
-Complete instructions: [Quick start](docs/QUICKSTART.md).
+**How long does it take?** User reports suggest that the wait can increase with
+the number of IRs stored on the POD Go and included in its backup. One user
+reported completing installation in **5–10 minutes**; this is a reference,
+not a guaranteed duration. Keep the pedalboard connected and wait for the final result.
+
+Complete instructions: [Quick start](docs/QUICKSTART.md) · [FAQ](docs/FAQ.md#english).
 
 ![Firmware and recovery — English interface preview](assets/screenshots/firmware-en.png)
 

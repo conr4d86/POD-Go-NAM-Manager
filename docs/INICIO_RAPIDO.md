@@ -9,9 +9,16 @@ El CF NAM Conr4d viene incluido en la app. Cierra las otras aplicaciones Line 6.
 2. Pulsa **CF NAM Conr4d** (ya incluido) y **Carga tu backup (.pgb)…**.
 3. Pulsa **Instalar CF NAM** y confirma **OK** en el aviso del backup.
 
-Espera a que termine toda la instalación. Comprueba arranque, presets y audio.
+**Tiempo de espera:** según los reportes de usuarios, cuantos más IR tengas
+guardados en la POD Go e incluidos en tu backup, más puede tardar. Un usuario
+ha comunicado una instalación de **5–10 minutos**; es orientativo y puede
+tardar más. No cierres la app ni desconectes la pedalera durante la instalación.
+
+Espera al resultado final. Comprueba arranque, presets y audio.
 Busca **NAM A2 Lite** en la lista de amplificadores; Model 0 es el integrado.
 Para tus otras capturas, abre **Biblioteca NAM** y sigue las tres acciones de abajo.
+
+Más detalles: [Preguntas frecuentes](FAQ.md#español).
 
 ## Cambiar un NAM — tres acciones
 

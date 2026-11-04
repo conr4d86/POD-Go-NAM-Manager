@@ -28,7 +28,12 @@ Espera al resultado final y al arranque normal antes de comprobar el audio.
 La instalación completa tarda bastante más que enviar un NAM.
 Abrir la app no inicia una instalación ni abre automáticamente el USB.
 
-Guía completa: [Inicio rápido](docs/INICIO_RAPIDO.md).
+**¿Cuánto tarda?** Según los reportes de usuarios, la espera puede aumentar con
+la cantidad de IR guardados en la POD Go e incluidos en su backup. Un usuario ha
+comunicado **5–10 minutos** para completar la instalación; es una referencia,
+no un plazo garantizado. Mantén la pedalera conectada y espera al resultado final.
+
+Guía completa: [Inicio rápido](docs/INICIO_RAPIDO.md) · [Preguntas frecuentes](docs/FAQ.md#español).
 
 ![Firmware y recuperación — vista previa en español](assets/screenshots/firmware-es.png)
 
