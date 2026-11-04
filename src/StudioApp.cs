@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 
 static class StudioApp {
- public const string Version="0.8.5";
+ public const string Version="0.8.6";
  [STAThread]public static int Main(string[] args){try{
   if(args.Length==3&&args[0]=="--update-self-test")return UpdateTests.Run(args[1],args[2]);
   if(args.Length==3&&args[0]=="--layout-self-test")return LayoutTests.Run(args[1],args[2]);

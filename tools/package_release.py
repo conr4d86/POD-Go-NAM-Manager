@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,re,zipfile,shutil
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.8.5'
+VERSION='0.8.6'
 TOP={'.gitignore','.gitattributes','LICENSE','NOTICE','README.md','README.es.md',
      'requirements-dev.txt','build-windows.ps1','test-offline.ps1'}
 DIRS={'.github','assets','docs','firmware','models','src','tests','third_party','tools'}
