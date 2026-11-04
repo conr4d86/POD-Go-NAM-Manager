@@ -27,8 +27,7 @@ Set `PODGO_LINE6_CENTRAL` to override the developer engine-file directory.
 
 `test-offline.ps1` checks the assembly resource archive and validates all
 17 images in its bundled custom firmware. It does not run the app's Main,
-start the SDK or open USB. The optional workflow example remains in
-`docs/windows-offline-workflow.yml`; no hosted CI pass is claimed.
+start the SDK or open USB. These checks run locally; no hosted CI pass is claimed.
 
 ## Release packaging
 
