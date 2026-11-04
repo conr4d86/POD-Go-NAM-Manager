@@ -14,6 +14,9 @@ tests. It is not a claim that all hardware revisions have been tested.
 | Earlier 0.7.2 clean source ZIP rebuild | Fresh extraction compiles the app and recreates the exact v8 HXF from original | Offline passed |
 | Manager 0.8.0 | 34 NAM + 27 UI/lease + 6 bilingual/package + 3 layout/input checks | 70 offline checks passed; physical app trial pending |
 | Public download 0.8.0 | SHA-256 `7135a035254350f8d2d5a5eca26df2f3c347ac25dc3619bfcda174063b219940` | New manager, same v8 CF and installation engine |
+| Manager 0.8.5 | 24 update + 34 NAM + 27 UI/lease + 3 layout + 6 bilingual/package checks | 94 offline checks passed |
+| Download 0.8.5 | SHA-256 `7d74ec49dcda068b00e9273024ab426557eafcfcc23e66fc7e5c2c62cc95c15e` | Same v8 CF; new volume normalizer and managed NAM maintenance |
+| New delete and volume-edit operations | Protocol fixtures, backups, readback and failure cases | Offline passed; physical USB test pending |
 
 v8 preserves the v6 DSP code and built-in capture byte-for-byte. Only the ARM
 application UI changes relative to v6; the other 16 archive images, including
@@ -43,12 +46,14 @@ and the ordinary HXF validator checks all 17 images before installation.
 2. Upload a named capture through the library; select it, verify its displayed
    short name and audio, and confirm it persists after a normal restart.
 3. Finish the install/restore flow and both interface languages on the same device.
+4. Exercise 0.8.5 volume editing and deletion on the pedalboard, including the
+   resulting slot inventory and audio after selecting the Model again.
 
 Results must be added only after they actually occur. No USB or SDK is opened
 by the offline tests. The public preview remains experimental pending these manual checks.
 
 
-## Manager 0.8.0 layout and input checks
+## Historical: Manager 0.8.0 layout and input checks
 
 Native screenshots use a synthetic bank, in both languages. Rendered client
 sizes: 1500×900, 1348×730, 1264×680, 1008×680, 1920×1000, then back to
@@ -63,3 +68,30 @@ fixture transport. The source NAM remains unchanged.
 The firmware binary is unchanged. Offline rendering and fixture transport do
 not establish physical audio timing, actual monitor DPI behavior, or USB
 transfer performance. No device or SDK was opened for this release work.
+
+## Manager 0.8.5 volume and maintenance checks
+
+The current UI has one **Volume (dB)** field with **Automatic**. Automatic runs
+the same deterministic 0.75-second shaped-noise probe at three intensities
+through the selected A2 Lite and the embedded reference. It compares AC RMS
+levels with **Developed by Conr4d at −5 dB** and adjusts the output scalar only.
+This replaces the 0.8.0 Automatic behavior described in the historical section.
+The model's input weights and saturation are preserved.
+
+Checks cover carrier decoding and exact round trips, the reference returning
+−5 dB, a +6 dB model receiving the corresponding compensation, a known linear
+network, silent models and caching. The development PC measured about 0.68 s
+for the initial analysis and 0.32 s for another model; these are local timings.
+
+Managed deletion and volume editing require a current slot snapshot, verified
+NAM data, a durable backup and a successful commit acknowledgement. Readback
+checks verify the edited payload or the empty slot and unchanged metadata in
+the other slots. Fixtures cover stale snapshots, protected IRs, forged tags,
+missing level records and failed acknowledgements. Historical input adjustments
+are retained when editing volume. The source NAM file stays unchanged.
+
+Both languages, the empty capture prompt and the single volume control were
+checked locally. Screenshots in `assets/screenshots` are native offline renders
+with a synthetic bank. The final EXE audit validates the unchanged v8 firmware's
+17 images, the included engine and the exclusion of the original official HXF.
+The new USB operations have not yet been verified on the physical pedalboard.

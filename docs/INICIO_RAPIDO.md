@@ -30,15 +30,28 @@ Necesitas el custom instalado y la biblioteca conectada.
 
 Ya puedes cerrar la app. No se reinstala el firmware para cambiar de NAM.
 
-Opcional: cambia el nombre corto antes de enviar. **Automático** conserva la
-entrada original a **0 dB**; desmárcalo para ajustar la entrada manualmente. La
-salida mantiene su atenuación de **−5 dB**. Automático no analiza audio.
+Opcional: cambia el nombre corto antes de enviar. Usa el único control
+**Volumen (dB)** con **Automático**, o desmarca Automático y elige tú el volumen.
+Automático hace una comparación breve en el PC con **Developed by Conr4d a
+−5 dB**, conservando la saturación del modelo. No cambia el archivo NAM original.
 Si actualizas una posición ocupada, confirma **Sustituir Model…**; se guarda
 una copia previa. Los IR de pantalla no se sustituyen.
 
 El valor encima de **Model** muestra número y nombre corto. Model 0 muestra
 `0. Dev by Conr4d`; el título del bloque sigue siendo **Amp NAM A2 Lite**.
 Para poner nombre a una carga antigua, vuelve a enviarla desde esta versión.
+
+## Editar volumen o liberar una posición
+
+Selecciona un NAM guardado en la biblioteca conectada:
+
+- **Editar volumen…** → elige volumen manual o Automático → **Guardar volumen**.
+- **Borrar NAM…** → revisa el Model indicado y confirma. La posición queda libre.
+
+La app guarda una copia del NAM antes de ambas operaciones y verifica el resultado.
+Model 0 y los IR de pantalla están protegidos. Los presets que usaban un NAM
+borrado dejarán de encontrarlo. Si este PC no conserva sus niveles, abre el
+archivo NAM original para actualizarlo.
 
 ## Idioma
 
@@ -53,6 +66,6 @@ los presets anteriores.
 
 ## Tamaño de la ventana
 
-La 0.8.0 permite maximizar y se adapta proporcionalmente al espacio disponible.
+La 0.8.5 permite maximizar y se adapta proporcionalmente al espacio disponible.
 En ventanas muy pequeñas ofrece desplazamiento para conservar la legibilidad.
 Actualizar el gestor no requiere reinstalar el custom v8.

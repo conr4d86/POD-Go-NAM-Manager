@@ -28,13 +28,30 @@ datos, sin reinstalar el firmware.
 
 ### ¿Qué hace Automático?
 
-Conserva la entrada original del NAM a **0 dB**; no analiza audio. Desmárcalo
-para ajustar la entrada manualmente. La salida conserva la atenuación de **−5 dB**.
-El ajuste de entrada se aplica al enviar el NAM; no cambia el archivo original.
+Normaliza el volumen usando una señal de prueba común para tu captura y la
+referencia **Developed by Conr4d a −5 dB**. El cálculo se hace en el PC antes de
+enviar y no cambia la saturación del modelo. Solo hay un campo **Volumen (dB)**;
+desmarca Automático para ajustarlo manualmente. El archivo original no cambia.
 
-### ¿Debo reinstalar el custom para usar la app 0.8.0?
+En el PC de desarrollo, la primera comparación tardó unos **0,68 s** y otro
+modelo unos **0,32 s**; depende del ordenador. Es una referencia de volumen,
+no una garantía de idéntica sonoridad con cualquier guitarra, preset o IR.
+No es un control automático continuo mientras tocas.
 
-No, si ya tienes el custom v8. La 0.8.0 cambia el gestor y mantiene ese firmware.
+### ¿Puedo ajustar un NAM guardado o borrar uno?
+
+Sí: selecciónalo y pulsa **Editar volumen…** o **Borrar NAM…**. Se conserva una
+copia previa y se verifica la lectura después de la operación. Model 0 y los IR
+de pantalla están protegidos. Borrar libera la posición; los presets que usaban
+ese NAM dejarán de encontrarlo.
+
+Para editar volumen, este PC debe conservar los niveles del NAM. Si aparece
+que no se conocen, abre su archivo original y actualiza la posición. Un guion
+en la columna Volumen significa que el nivel no se conoce, no que sea 0 dB.
+
+### ¿Debo reinstalar el custom para usar la app 0.8.5?
+
+No, si ya tienes el custom v8. La 0.8.5 cambia el gestor y mantiene ese firmware.
 
 ## English
 
@@ -64,10 +81,26 @@ the data, without reinstalling firmware.
 
 ### What does Automatic do?
 
-It preserves the original NAM input at **0 dB**, without analyzing audio.
-Uncheck it to adjust input manually. Output attenuation remains **−5 dB**.
-The input adjustment is applied when uploading, leaving the source file unchanged.
+It normalizes volume by running the same test signal through your capture and
+the **Developed by Conr4d at −5 dB** reference. Analysis runs on the PC before
+upload and preserves model saturation. There is one **Volume (dB)** field;
+uncheck Automatic to set it manually. The source file is unchanged.
 
-### Does Manager 0.8.0 require reinstalling custom firmware?
+On the development PC the first comparison took about **0.68 s**, and another
+model about **0.32 s**; timing varies. This is a volume reference, not a promise
+of identical perceived loudness with every guitar, preset or IR. It is not
+continuous automatic gain control while playing.
 
-No, if v8 is already installed. Manager 0.8.0 keeps that firmware unchanged.
+### Can I adjust a stored NAM or delete one?
+
+Yes: select it and choose **Edit volume…** or **Delete NAM…**. Both save a backup
+and verify the result. Model 0 and cabinet IRs are protected. Deleting frees
+the slot; presets using that NAM will no longer find it.
+
+Volume editing needs the NAM levels saved on this PC. If these are unknown,
+open the original NAM and update the slot. A dash in the Volume column means
+the level is unknown, not 0 dB.
+
+### Does Manager 0.8.5 require reinstalling custom firmware?
+
+No, if v8 is already installed. Manager 0.8.5 keeps that firmware unchanged.

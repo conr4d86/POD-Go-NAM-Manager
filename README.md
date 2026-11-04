@@ -10,7 +10,10 @@ recovery** and a **NAM Library**, with Spanish and English interfaces.
 
 The test status is listed in [validation](docs/VALIDATION.md).
 
-[Download for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.0/PODGoNamManager.exe)
+[Download for Windows — 0.8.5](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.5/PODGoNamManager.exe)
+
+Already using custom v8? Download the new EXE and use **NAM Library**.
+There is no firmware reinstall for this update.
 
 ## First installation
 
@@ -53,13 +56,22 @@ disconnect the computer: the POD Go processes the audio itself.
 Use the **short name** field for a Model value such as `53. FRIEDMAN HBE`. Existing
 captures uploaded with older Manager versions need uploading again to add a
 name. An occupied slot offers **Replace Model…**, followed by confirmation and a
-verified backup. Cabinet IRs are protected. **Automatic** preserves the NAM input
-at **0 dB**; uncheck it to adjust the input level. Output attenuation stays at
-**−5 dB**. Automatic does not analyze audio or estimate calibration.
+verified backup. Cabinet IRs are protected.
+
+There is one **Volume (dB)** control with **Automatic**. Automatic runs a short,
+local test through the capture and compares its volume with **Developed by
+Conr4d at −5 dB**. It adjusts volume while preserving the model's saturation.
+Uncheck Automatic to set the volume yourself. The source NAM file stays unchanged.
+
+Select a stored NAM and choose **Edit volume…** to update its volume in the
+same Model, or **Delete NAM…** to free the slot. Both keep a backup and verify
+the result. Model 0 and cabinet IRs are protected. Deleting a NAM means presets
+using that Model will no longer find it. Volume editing needs the levels saved
+on this PC; if unavailable, open the original NAM and upload it again.
 
 ![NAM Library — English offline preview with synthetic bank](assets/screenshots/nam-en.png)
 
-Version **0.8.0** keeps its normal size on large screens, scales proportionally
+Version **0.8.5** keeps its normal size on large screens, scales proportionally
 when space is limited, and supports maximizing. Very small windows use scrolling
 to keep controls readable. Updating Manager does **not** require reinstalling
 the included v8 custom firmware.
@@ -103,7 +115,7 @@ factory reset as part of this guide. See [recovery](docs/RECOVERY.md).
 - Audit without hardware: `powershell -ExecutionPolicy Bypass -File .\test-offline.ps1`
 - These are developer steps; the downloadable EXE already includes the CF.
 
-The download contains the 0.8.0 executable, with **CF NAM Conr4d and
+The download contains the 0.8.5 executable, with **CF NAM Conr4d and
 the firmware engine included**. The original official HXF is requested only
 when the user chooses to restore official firmware. Developer source builds
 use locally installed engine files; see the build guide.

@@ -10,7 +10,10 @@ recuperación** y **Biblioteca NAM**, con interfaz en español e inglés.
 
 El estado de las comprobaciones está en [validación](docs/VALIDATION.md).
 
-[Descargar para Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.0/PODGoNamManager.exe)
+[Descargar para Windows — 0.8.5](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.5/PODGoNamManager.exe)
+
+¿Ya tienes el custom v8? Descarga el nuevo EXE y usa **Biblioteca NAM**.
+Esta actualización no requiere reinstalar el firmware.
 
 ## Primera instalación
 
@@ -54,13 +57,22 @@ El campo **Nombre corto** permite mostrar, por ejemplo, `53. FRIEDMAN HBE`.
 Para añadir el nombre a un NAM cargado con una versión anterior, vuelve a
 enviarlo. En una posición ocupada aparece **Sustituir Model…**; se pide
 confirmación y se conserva una copia previa. Los IR de pantalla están protegidos.
-**Automático** conserva la entrada original del NAM a **0 dB**. Desmárcalo para
-ajustar el nivel de entrada. La atenuación de salida se mantiene en **−5 dB**.
-Automático no analiza audio ni calcula una calibración.
+
+Hay un único control **Volumen (dB)** con **Automático**. Automático ejecuta
+una prueba breve en el PC y compara el volumen de la captura con **Developed
+by Conr4d a −5 dB**. Ajusta el volumen conservando la saturación del modelo.
+Desmárcalo para elegir tú el volumen. El archivo NAM original queda intacto.
+
+Selecciona un NAM guardado y pulsa **Editar volumen…** para ajustarlo en su
+mismo Model, o **Borrar NAM…** para liberar la posición. Ambas operaciones
+guardan una copia y verifican el resultado. Model 0 y los IR están protegidos.
+Al borrar, los presets que usaban ese Model dejarán de encontrar ese NAM.
+La edición necesita los niveles guardados en este PC; si faltan, abre el NAM
+original y vuelve a cargarlo.
 
 ![Biblioteca NAM — vista local con banco sintético](assets/screenshots/nam-es.png)
 
-La **0.8.0** mantiene el tamaño normal en pantallas grandes, reduce las
+La **0.8.5** mantiene el tamaño normal en pantallas grandes, reduce las
 proporciones cuando falta espacio y permite maximizar. En ventanas muy pequeñas
 se puede desplazar el contenido para mantener los controles legibles. Actualizar
 el gestor **no requiere reinstalar** el custom v8 incluido.
@@ -107,7 +119,7 @@ revisión `2e801641df4a083c29ee13c5718c047d336ef692`.
 Código GPL-3.0-or-later: [LICENSE](LICENSE) y [NOTICE](NOTICE).
 El NAM incluido tiene su propio [aviso](models/NOTICE.txt).
 
-La descarga contiene el **ejecutable 0.8.0**, con el CF NAM Conr4d y
+La descarga contiene el **ejecutable 0.8.5**, con el CF NAM Conr4d y
 el motor de instalación incluidos. El archivo oficial se pide únicamente
 si eliges restaurar el firmware original.
 Compilación y pruebas: [BUILDING](docs/BUILDING.md).

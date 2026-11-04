@@ -30,15 +30,28 @@ Custom firmware must be installed and the library connected.
 
 You can close the app. Changing a NAM does not reinstall firmware.
 
-Optionally adjust the short name first. **Automatic** preserves the original
-NAM input at **0 dB**; uncheck it to adjust input manually. Output attenuation
-stays at **−5 dB**. Automatic does not analyze audio.
+Optionally adjust the short name first. Use the single **Volume (dB)** control
+with **Automatic**, or uncheck Automatic and set the volume yourself. Automatic
+runs a short local comparison against **Developed by Conr4d at −5 dB**, keeping
+the model's saturation. The original NAM file stays unchanged.
 An occupied NAM offers **Replace Model…**, with confirmation and a backup.
 Cabinet IRs are not overwritten.
 
 The value above **Model** shows its number and short name. Model 0 displays
 `0. Dev by Conr4d`; the block title remains **Amp NAM A2 Lite**.
 Upload an old capture again with this version to add its short name.
+
+## Edit volume or free a slot
+
+Select a stored NAM in the connected library:
+
+- **Edit volume…** → choose manual volume or Automatic → **Save volume**.
+- **Delete NAM…** → check the Model shown and confirm. The slot becomes free.
+
+The app backs up the NAM before either operation and verifies the result.
+Model 0 and cabinet IRs are protected. Presets using a deleted NAM will no
+longer find it. If this PC does not have the saved volume information, open
+the original NAM file to update it instead.
 
 ## Language
 
@@ -53,6 +66,6 @@ your previous presets.
 
 ## Window size
 
-Version 0.8.0 supports maximizing and scales proportionally to available space.
+Version 0.8.5 supports maximizing and scales proportionally to available space.
 Very small windows offer scrolling to keep controls readable. Updating Manager
 does not require reinstalling the v8 custom firmware.

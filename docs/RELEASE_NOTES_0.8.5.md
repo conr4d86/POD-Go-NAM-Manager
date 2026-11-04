@@ -1,11 +1,29 @@
 # POD Go NAM Manager 0.8.5
 
+[Descargar / Download PODGoNamManager.exe](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.5/PODGoNamManager.exe)
+
+## Español
+
+**Si ya tienes el custom v8, solo descarga y abre la nueva app. No hay que
+reinstalar el firmware.**
+
 - Un único campo **Volumen (dB)** con **Automático**.
 - Automático normaliza el volumen comparando cada A2 Lite con Developed by Conr4d a −5 dB mediante la misma señal de prueba local. No modifica la saturación ni necesita datos de calibración.
 - **Editar volumen…**: cambia el NAM seleccionado en su mismo Model, conserva una copia y verifica la lectura completa. También se abre con doble clic en su volumen. Los NAM ya ajustados con versiones anteriores conservan sus pesos de entrada.
 - **Borrar NAM…**: guarda una copia, libera la posición y verifica que queda vacía. Los IR y Model 0 siguen protegidos.
 - Texto de Preparar carga corregido sin NAM seleccionado, en español e inglés.
 - Custom v8 incluido sin cambios. No hace falta reinstalarlo para utilizar estas funciones.
+
+**Primera instalación:** crea un backup con POD Go Edit. Después:
+**Conectar POD Go → CF NAM Conr4d y cargar backup → Instalar CF NAM**.
+El custom viene incluido. Espera al resultado final sin desconectar la pedalera.
+
+**Cambiar de NAM:** **Abrir NAM → elegir Model → Cargar**.
+Para editar volumen, selecciona un NAM guardado y pulsa **Editar volumen…**.
+Para liberar su posición, pulsa **Borrar NAM…** y confirma el Model indicado.
+Al borrar, los presets que lo usaban dejarán de encontrar ese NAM.
+
+[Inicio rápido](https://github.com/conr4d86/POD-Go-NAM-Manager/blob/codex/release-0.8.5/docs/INICIO_RAPIDO.md) · [Preguntas frecuentes](https://github.com/conr4d86/POD-Go-NAM-Manager/blob/codex/release-0.8.5/docs/FAQ.md#español)
 
 ## Pruebas
 
@@ -15,6 +33,19 @@ Las nuevas operaciones USB de borrado y edición están comprobadas con el proto
 
 ## English
 
+**Already using custom v8? Download and open the new app. No firmware reinstall
+is required.**
+
 One **Volume (dB)** field with **Automatic**. Automatic compares every A2 Lite with Developed by Conr4d at −5 dB using the same local probe. It preserves model saturation. **Edit volume…** updates the selected Model with backup and full readback verification; **Delete NAM…** frees a selected managed slot with backup. Cabinet IRs and Model 0 stay protected. The empty capture prompt is fixed. Existing v8 users do not need to reflash.
 
 94 offline checks passed. Physical testing of the new delete and volume-edit operations remains separate.
+
+**First installation:** make a POD Go Edit backup, then use **Connect POD Go →
+CF NAM Conr4d and load backup → Install NAM firmware**. The custom is bundled.
+Wait for the final result without disconnecting the pedalboard.
+
+**Change a NAM:** **Open NAM → choose Model → Upload**. Select a stored NAM and
+choose **Edit volume…** or **Delete NAM…**. Check the Model before confirming
+deletion; presets using that NAM will no longer find it.
+
+[Quick start](https://github.com/conr4d86/POD-Go-NAM-Manager/blob/codex/release-0.8.5/docs/QUICKSTART.md) · [FAQ](https://github.com/conr4d86/POD-Go-NAM-Manager/blob/codex/release-0.8.5/docs/FAQ.md#english)
