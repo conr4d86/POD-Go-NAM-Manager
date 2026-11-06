@@ -143,3 +143,9 @@ licence notices are included. Code is **GPL-3.0-or-later**; see [NOTICE](NOTICE)
 and [LICENSE](LICENSE). The included capture has its own [notice](models/NOTICE.txt).
 
 Independent, unofficial and experimental. Not affiliated with Line 6 or Yamaha.
+
+## Support the project
+
+If POD Go NAM Manager is useful to you, you can support its development:
+
+[☕ Buy me a coffee](https://buymeacoffee.com/conr4d)

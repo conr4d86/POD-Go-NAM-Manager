@@ -135,3 +135,9 @@ si eliges restaurar el firmware original.
 Compilación y pruebas: [BUILDING](docs/BUILDING.md).
 
 Proyecto independiente, no oficial y experimental, sin afiliación con Line 6 ni Yamaha.
+
+## Apoya el proyecto
+
+Si POD Go NAM Manager te resulta útil, puedes apoyar su desarrollo:
+
+[☕ Invítame a un café](https://buymeacoffee.com/conr4d)
