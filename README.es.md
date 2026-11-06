@@ -19,6 +19,12 @@ La **0.8.6 corrige el error intermitente «Respuesta incompleta»** al editar
 volumen o actualizar la biblioteca. Conserva los cambios de volumen verificados
 aunque falle un refresco posterior. Consulta las [novedades](docs/RELEASE_NOTES_0.8.6.md).
 
+## Demostración en vídeo
+
+NAM A2 Lite funcionando directamente dentro de una Line 6 POD Go.
+
+[![Ver la demostración de NAM A2 Lite en YouTube](https://img.youtube.com/vi/cQ0YdaQXmy8/hqdefault.jpg)](https://youtu.be/cQ0YdaQXmy8)
+
 ## Primera instalación
 
 Antes, crea un backup con **POD Go Edit** y conserva el `.pgb`. Instala el driver

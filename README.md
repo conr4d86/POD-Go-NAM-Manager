@@ -19,6 +19,12 @@ There is no firmware reinstall for this update.
 volume or refreshing the library. Verified volume changes are retained even
 if a later refresh fails. See the [release notes](docs/RELEASE_NOTES_0.8.6.md).
 
+## Video demonstration
+
+NAM A2 Lite running directly inside a Line 6 POD Go.
+
+[![Watch the NAM A2 Lite demonstration on YouTube](https://img.youtube.com/vi/cQ0YdaQXmy8/hqdefault.jpg)](https://youtu.be/cQ0YdaQXmy8)
+
 ## First installation
 
 Make a backup in **POD Go Edit** first and keep its `.pgb` file. Install the
