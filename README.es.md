@@ -10,6 +10,12 @@ recuperación** y **Biblioteca NAM**, con interfaz en español e inglés.
 
 El estado de las comprobaciones está en [validación](docs/VALIDATION.md).
 
+**Nueva versión [PODGoNamManager 0.9 - CFv9](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/tag/v0.9.0).** La aplicación para Windows con USB activo reúne Biblioteca NAM, Custom Editor y Firmware / Restaurar. Consulta las [notas de la 0.9](docs/RELEASE_NOTES_0.9.0.md) para ver compatibilidad, pruebas en la pedalera y funciones pendientes.
+
+## Versión 0.8.6 y CF v8
+
+La descarga y la guía siguientes corresponden a la 0.8.6.
+
 [Descargar para Windows — 0.8.6](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.8.6/PODGoNamManager.exe)
 
 ¿Ya tienes el custom v8? Descarga el nuevo EXE y usa **Biblioteca NAM**.
