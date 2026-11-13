@@ -4,13 +4,20 @@
 
 [Español](README.es.md) · **English**
 
-Run **NAM A2 Lite inside your POD Go**, and change captures over USB without
-reinstalling firmware for each model. One Windows app provides **Firmware and
-recovery** and a **NAM Library**, with Spanish and English interfaces.
+Run **NAM A2 Lite inside your standard POD Go**. The Windows app combines
+**NAM Library**, **TONE3000**, **Custom Editor**, and **Firmware / Restore**
+with Spanish and English interfaces.
 
 The test status is listed in [validation](docs/VALIDATION.md).
 
-**New release [PODGoNamManager 0.9 - CFv9](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/tag/v0.9.0).** The USB-enabled Windows app now includes NAM Library, Custom Editor, and Firmware / Restore. See the [0.9 release notes](docs/RELEASE_NOTES_0.9.0.md) for compatibility, hardware checks, and pending features.
+[Download POD Go NAM Manager 0.9.1.3 for Windows](https://github.com/conr4d86/POD-Go-NAM-Manager/releases/download/v0.9.1.3/PODGoNamManager-CFv9-USB-0.9.1.3.exe) · [Release notes](docs/RELEASE_NOTES_0.9.1.3.md)
+
+![Custom Editor connected over USB, showing the NAM A2 Lite block](assets/screenshots/custom-editor.png)
+
+- **TONE3000** lets you browse and filter captures, play samples directly from the lists, and download NAM variants.
+- **NAM Library** lets you prepare and upload captures to free POD Go slots with automatic level matching.
+- **Custom Editor** lets you edit the signal chain, snapshots and controller assignments, then save the active preset over USB.
+- **Firmware / Restore** includes CF NAM Conr4d v9 for the standard POD Go on firmware 2.50. Open the new EXE directly if CF v9 is already installed. For a first installation, create a `.pgb` backup in POD Go Edit and close that app before connecting the Manager.
 
 ## Version 0.8.6 and CF v8
 
