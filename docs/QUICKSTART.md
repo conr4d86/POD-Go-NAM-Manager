@@ -1,71 +1,10 @@
-# Quick start
+# Quick start · Manager 1.0.0 and CF v11
 
-## Install custom firmware for the first time
+1. Use POD Go Edit to save a full `.pgb` backup of your standard POD Go. Keep the original outside the Manager folder, then close POD Go Edit.
+2. Open the Manager on Windows. Connect the pedalboard over USB and open **Firmware / Restore**. If the Manager already recognizes your CF v11 build, you can open the editor directly.
+3. To install, confirm that CF v11 is selected and start installation. Keep USB and power connected until the Manager verifies the reboot over USB.
+4. Open a preset with NAM A2 Lite and check the audio. Start PGB restoration from **Custom Editor**.
 
-**Before starting:** create a backup in POD Go Edit and keep its `.pgb`.
-CF NAM Conr4d is included in the app. Close the other Line 6 applications.
+To load a capture, open **NAM Library**, select a 48 kHz NAM A2 Lite file or pick one from **Downloaded NAMs**, and choose a free slot. Once the transfer is confirmed, select that Model in the preset's NAM block. That block occupies the **Line 6 Clarity** model slot. Keep the original PGB if you want to return to stock firmware.
 
-1. Open Manager on **Firmware and recovery** and click **Connect POD Go**.
-2. Click **CF NAM Conr4d** (included) and **Load your backup (.pgb)…**.
-3. Click **Install NAM firmware** and confirm **OK** in the backup reminder.
-
-**Waiting time:** user reports suggest that more IRs stored on the POD Go and
-included in its backup can mean a longer wait. One user reported an installation
-of **5–10 minutes**; this is approximate and yours may take longer. Do not close
-the app or disconnect the pedalboard during installation.
-
-Wait for the final result. Check startup, presets and audio.
-Find **NAM A2 Lite** in the amp list; Model 0 is built-in.
-For your other captures, open **NAM Library** and follow the three actions below.
-
-More details: [FAQ](FAQ.md#english).
-
-## Change a NAM — three actions
-
-Custom firmware must be installed and the library connected.
-
-1. **Open NAM…**
-2. **Choose Model** — select an empty slot or a NAM to replace.
-3. **Upload to Model…** — when verified, select that number on the pedalboard.
-
-You can close the app. Changing a NAM does not reinstall firmware.
-
-Optionally adjust the short name first. Use the single **Volume (dB)** control
-with **Automatic**, or uncheck Automatic and set the volume yourself. Automatic
-runs a short local comparison against **Developed by Conr4d at −5 dB**, keeping
-the model's saturation. The original NAM file stays unchanged.
-An occupied NAM offers **Replace Model…**, with confirmation and a backup.
-Cabinet IRs are not overwritten.
-
-The value above **Model** shows its number and short name. Model 0 displays
-`0. Dev by Conr4d`; the block title remains **Amp NAM A2 Lite**.
-Upload an old capture again with this version to add its short name.
-
-## Edit volume or free a slot
-
-Select a stored NAM in the connected library:
-
-- **Edit volume…** → choose manual volume or Automatic → **Save volume**.
-- **Delete NAM…** → check the Model shown and confirm. The slot becomes free.
-
-The app backs up the NAM before either operation and verifies the result.
-Model 0 and cabinet IRs are protected. Presets using a deleted NAM will no
-longer find it. If this PC does not have the saved volume information, open
-the original NAM file to update it instead.
-
-## Language
-
-The sidebar selector offers **Español / English** and remembers your choice.
-It is disabled during transfers.
-
-## Return to official firmware
-
-**Load Official Firmware…** → select the original 2.50 → load your backup in
-the app → restore. Afterwards, load your backup in **POD Go Edit** to restore
-your previous presets.
-
-## Window size
-
-Version 0.8.6 supports maximizing and scales proportionally to available space.
-Very small windows offer scrolling to keep controls readable. Updating Manager
-does not require reinstalling the v8 custom firmware.
+[Recovery guide](RECOVERY.md) · [Release notes](RELEASE_NOTES_1.0.0.md)

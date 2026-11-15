@@ -5,7 +5,7 @@
 Conserva el HXF oficial POD Go 2.50 y el backup `.pgb` creado con POD Go Edit.
 Para restaurar desde Manager:
 
-1. En **Firmware / recuperar**, conecta la POD Go.
+1. En **Firmware / Restaurar**, conecta la POD Go.
 2. Pulsa **Cargar Firmware Oficial…**, elige el original y carga tu backup `.pgb`.
 3. Pulsa **Restaurar oficial 2.50** y confirma el aviso informativo.
 
@@ -24,7 +24,7 @@ una escritura haya comenzado o finalizado. Esta guía no requiere un factory res
 ## English
 
 Keep the original POD Go 2.50 HXF and the `.pgb` backup created in POD Go Edit.
-In **Firmware / recovery**, connect the POD Go, choose **Load Official Firmware…**,
+In **Firmware / Restore**, connect the POD Go, choose **Load Official Firmware…**,
 load your backup and click **Restore official 2.50**. Confirm and wait for the
 final result. Then load your backup in **POD Go Edit** to restore your previous
 presets, including those that had used NAM.

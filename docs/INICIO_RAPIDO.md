@@ -1,71 +1,10 @@
-# Inicio rápido
+# Inicio rápido · Manager 1.0.0 y CF v11
 
-## Instalar el custom por primera vez
+1. Guarda un backup completo `.pgb` de tu POD Go estándar con POD Go Edit. Conserva el original fuera de la carpeta del Manager y cierra POD Go Edit.
+2. Abre el Manager en Windows. Conecta la pedalera por USB y entra en **Firmware / Restaurar**. Si ya está instalado el CF v11 que reconoce el Manager, puedes abrir el editor directamente.
+3. Para instalar, confirma que el CF seleccionado es el v11. Pulsa **Instalar CF NAM v11**. Mantén conectados el USB y la alimentación hasta que el Manager confirme el reinicio por USB.
+4. Abre un preset con NAM A2 Lite y comprueba el audio. La restauración del PGB se inicia desde **Custom Editor**.
 
-**Antes de empezar:** haz un backup con POD Go Edit y conserva el `.pgb`.
-El CF NAM Conr4d viene incluido en la app. Cierra las otras aplicaciones Line 6.
+Para cargar una captura, abre **Biblioteca NAM**, elige un NAM A2 Lite de 48 kHz o selecciónalo en **NAM Descargados** y escoge una posición libre. Cuando se confirme la transferencia, selecciona ese Model en el bloque NAM del preset. El bloque NAM ocupa la posición de **Line 6 Clarity**. Conserva el PGB original para volver al firmware oficial.
 
-1. Abre Manager, en **Firmware y recuperación**, y pulsa **Conectar POD Go**.
-2. Pulsa **CF NAM Conr4d** (ya incluido) y **Carga tu backup (.pgb)…**.
-3. Pulsa **Instalar CF NAM** y confirma **OK** en el aviso del backup.
-
-**Tiempo de espera:** según los reportes de usuarios, cuantos más IR tengas
-guardados en la POD Go e incluidos en tu backup, más puede tardar. Un usuario
-ha comunicado una instalación de **5–10 minutos**; es orientativo y puede
-tardar más. No cierres la app ni desconectes la pedalera durante la instalación.
-
-Espera al resultado final. Comprueba arranque, presets y audio.
-Busca **NAM A2 Lite** en la lista de amplificadores; Model 0 es el integrado.
-Para tus otras capturas, abre **Biblioteca NAM** y sigue las tres acciones de abajo.
-
-Más detalles: [Preguntas frecuentes](FAQ.md#español).
-
-## Cambiar un NAM — tres acciones
-
-Necesitas el custom instalado y la biblioteca conectada.
-
-1. **Abrir NAM…**
-2. **Elegir Model** — usa una posición libre o un NAM que quieras sustituir.
-3. **Cargar en Model…** — cuando termine, selecciona ese número en la pedalera.
-
-Ya puedes cerrar la app. No se reinstala el firmware para cambiar de NAM.
-
-Opcional: cambia el nombre corto antes de enviar. Usa el único control
-**Volumen (dB)** con **Automático**, o desmarca Automático y elige tú el volumen.
-Automático hace una comparación breve en el PC con **Developed by Conr4d a
-−5 dB**, conservando la saturación del modelo. No cambia el archivo NAM original.
-Si actualizas una posición ocupada, confirma **Sustituir Model…**; se guarda
-una copia previa. Los IR de pantalla no se sustituyen.
-
-El valor encima de **Model** muestra número y nombre corto. Model 0 muestra
-`0. Dev by Conr4d`; el título del bloque sigue siendo **Amp NAM A2 Lite**.
-Para poner nombre a una carga antigua, vuelve a enviarla desde esta versión.
-
-## Editar volumen o liberar una posición
-
-Selecciona un NAM guardado en la biblioteca conectada:
-
-- **Editar volumen…** → elige volumen manual o Automático → **Guardar volumen**.
-- **Borrar NAM…** → revisa el Model indicado y confirma. La posición queda libre.
-
-La app guarda una copia del NAM antes de ambas operaciones y verifica el resultado.
-Model 0 y los IR de pantalla están protegidos. Los presets que usaban un NAM
-borrado dejarán de encontrarlo. Si este PC no conserva sus niveles, abre el
-archivo NAM original para actualizarlo.
-
-## Idioma
-
-El selector lateral permite **Español / English**. Recuerda la elección.
-Durante una transferencia permanece deshabilitado.
-
-## Volver al oficial
-
-**Cargar Firmware Oficial…** → seleccionar el original 2.50 → cargar el backup
-en la app → restaurar. Después, carga tu backup en **POD Go Edit** para recuperar
-los presets anteriores.
-
-## Tamaño de la ventana
-
-La 0.8.6 permite maximizar y se adapta proporcionalmente al espacio disponible.
-En ventanas muy pequeñas ofrece desplazamiento para conservar la legibilidad.
-Actualizar el gestor no requiere reinstalar el custom v8.
+[Guía de recuperación](RECOVERY.md) · [Notas de la versión](RELEASE_NOTES_1.0.0.md)

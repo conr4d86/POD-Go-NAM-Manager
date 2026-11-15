@@ -1,5 +1,13 @@
 # Validation status
 
+## Manager 1.0.0 and Custom Firmware v11
+
+- On one standard POD Go, the Manager installed CF v11 and verified firmware build `5107034174de38d0a30e7a4a` over USB after reboot. The supplied screenshots show the installer confirmation, Custom Editor, TONE3000, and NAM Library.
+- Offline tests covered the Global EQ controls and recovery after a lost acknowledgement, the firmware admission policy, and PGB parsing and restore planning.
+- The owner reported normal operation after the update. The available results do not record a separate physical result for every PGB and Global EQ persistence scenario.
+
+## Earlier versions
+
 This file distinguishes observations on one physical POD Go from offline
 tests. It is not a claim that all hardware revisions have been tested.
 
