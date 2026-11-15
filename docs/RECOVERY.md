@@ -15,9 +15,9 @@ la configuración anterior de los presets que usaban el bloque NAM.
 
 Si una actualización termina con error y la pedalera no inicia normalmente,
 cierra los editores y utiliza el modo actualización: apaga la POD Go, mantén
-**PAGE >** al encenderla y conéctala directamente por USB. Line 6 Central puede
+**PAGE >** al encenderla y conéctala directamente por USB. La herramienta oficial de recuperación puede
 pedir identificar el dispositivo genérico: selecciona **POD Go**.
-Utiliza entonces el HXF oficial con la herramienta de recuperación de Line 6.
+Usa esa herramienta para instalar el HXF oficial.
 Una pantalla blanca o una versión desconocida por sí solas no prueban que
 una escritura haya comenzado o finalizado. Esta guía no requiere un factory reset.
 
@@ -31,11 +31,11 @@ presets, including those that had used NAM.
 
 If a failed update prevents normal startup, close editors and enter update
 mode by holding **PAGE >** while powering on. Connect directly by USB. If
-Line 6 Central detects a generic device, identify it as **POD Go**, then use
+the official recovery tool detects a generic device, identify it as **POD Go**, then use
 the original HXF with the official recovery tool. A blank display or unknown
 version alone does not prove flash completion. A factory reset is not part
 of this guide.
 
-Official product resources: [Line 6 POD Go support](https://line6.com/support/)
+Official product resources: [POD Go support](https://line6.com/support/)
 and [software downloads](https://line6.com/software/).
 

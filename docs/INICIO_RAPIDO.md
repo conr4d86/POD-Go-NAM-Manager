@@ -5,6 +5,6 @@
 3. Para instalar, confirma que el CF seleccionado es el v11. Pulsa **Instalar CF NAM v11**. Mantén conectados el USB y la alimentación hasta que el Manager confirme el reinicio por USB.
 4. Abre un preset con NAM A2 Lite y comprueba el audio. La restauración del PGB se inicia desde **Custom Editor**.
 
-Para cargar una captura, abre **Biblioteca NAM**, elige un NAM A2 Lite de 48 kHz o selecciónalo en **NAM Descargados** y escoge una posición libre. Cuando se confirme la transferencia, selecciona ese Model en el bloque NAM del preset. El bloque NAM ocupa la posición de **Line 6 Clarity**. Conserva el PGB original para volver al firmware oficial.
+Para cargar una captura, abre **Biblioteca NAM**, elige un NAM A2 Lite de 48 kHz o selecciónalo en **NAM Descargados** y escoge una posición libre. Cuando se confirme la transferencia, selecciona ese Model en el bloque NAM del preset. El bloque NAM ocupa la posición de **Clarity**. Conserva el PGB original para volver al firmware oficial.
 
 [Guía de recuperación](RECOVERY.md) · [Notas de la versión](RELEASE_NOTES_1.0.0.md)

@@ -12,7 +12,7 @@ Gestiona capturas NAM A2 Lite y presets de la POD Go desde Windows. Una sola apl
 
 ## Antes de conectar
 
-Esta edición está dirigida a la **POD Go estándar**. Crea una copia completa `.pgb` con el editor oficial y guárdala fuera de la carpeta del Manager. Cierra POD Go Edit antes de conectar el Manager. Si utilizas **Line 6 Clarity** en tus presets, conserva el backup original. El CF utiliza esa posición del catálogo para el bloque NAM A2 Lite.
+Esta edición está dirigida a la **POD Go estándar**. Crea una copia completa `.pgb` con el editor oficial y guárdala fuera de la carpeta del Manager. Cierra POD Go Edit antes de conectar el Manager. Si utilizas **Clarity** en tus presets, conserva el backup original. El CF utiliza esa posición del catálogo para el bloque NAM A2 Lite.
 
 ## Primera instalación
 
@@ -36,7 +36,7 @@ Para volver al firmware oficial, usa **Firmware / Restaurar** con el HXF oficial
 
 ## Código y créditos
 
-Desarrollado por **Conr4d / conr4daudio**, autor también de la captura NAM integrada. El kernel y las herramientas NAM derivan de [nocaseguy/hx-stomp-nam-lite](https://github.com/nocaseguy/hx-stomp-nam-lite). Consulta [LICENSE](LICENSE), [NOTICE](NOTICE) y el [aviso de la captura](models/NOTICE.txt). Proyecto independiente de Line 6 y Yamaha.
+Desarrollado por **Conr4d / conr4daudio**, autor también de la captura NAM integrada. El kernel y las herramientas NAM derivan de [nocaseguy/hx-stomp-nam-lite](https://github.com/nocaseguy/hx-stomp-nam-lite). Consulta [LICENSE](LICENSE), [NOTICE](NOTICE) y el [aviso de la captura](models/NOTICE.txt).
 
 ## Apoya el proyecto
 
